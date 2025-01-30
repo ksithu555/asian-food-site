@@ -82,11 +82,7 @@ return [
     |
     */
 
-    'locale' => 'en',
-    'locale' => 'ja',
-
-
-
+    'locale' => 'jp',
     /*
     |--------------------------------------------------------------------------
     | Application Fallback Locale
@@ -98,7 +94,12 @@ return [
     |
     */
 
-    'fallback_locale' => 'en',
+    'fallback_locale' => 'jp',
+
+    'available_locales' => [
+        'Japanese' => 'jp',
+        'English' => 'en',
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -237,7 +238,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-        'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
+        // 'Cart' => Darryldecode\Cart\Facades\CartFacade::class,
 
         // 'Pusher' => Pusher\Pusher::class,
 

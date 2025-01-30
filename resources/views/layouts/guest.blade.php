@@ -107,7 +107,7 @@
                             <div class="notification-slider">
                                 <div>
                                     <div class="timer-notification">
-                                        <h6><strong class="me-1">Welcome to the Asian Food Museum EC site!</strong>
+                                        <h6><strong class="me-1">{{ __('messages.welcome') }}</strong>
                                         </h6>
                                     </div>
                                 </div>
@@ -124,6 +124,28 @@
                                     <img src="{{ asset('frontend/assets/images/country/united-states.png') }}"
                                         class="img-fluid blur-up lazyload" alt="" width="30px"
                                         style="margin-left: 5px;">
+                                </div>
+                            </li>
+                            <li class="right-nav-list">
+                                <div class="dropdown theme-form-select">
+                                    @foreach(config('app.available_locales') as $locale_name => $available_locale)
+                                        @if($available_locale === app()->getLocale())
+                                            <a href="#" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                                {{ $locale_name }}
+                                            </a>
+                                        @endif
+                                    @endforeach
+                                    <ul class="dropdown-menu" style="min-width: 80px;max-width: 100px; margin-left: -25px;">
+                                        @foreach(config('app.available_locales') as $locale_name => $available_locale)
+                                            @if($available_locale !== app()->getLocale())
+                                                <li>
+                                                    <a href="{{ url('/language/'.$available_locale) }}" class="dropdown-item">
+                                                        {{ $locale_name }}
+                                                    </a>
+                                                </li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
                                 </div>
                             </li>
                             <li class="right-nav-list">
