@@ -38,7 +38,7 @@
                                         </p>
                                     @if ($productsGroupedByDiscount[30] != null)
                                         <button onclick="location.href = '{{ route('show-discount-product', ['ids' => $productsGroupedByDiscount[30]]) }}';"
-                                            class="btn btn-animation mt-xxl-4 mt-2 home-button mend-auto">Shop Now
+                                            class="btn btn-animation mt-xxl-4 mt-2 home-button mend-auto">{{ __('messages.shop_now') }}
                                             <i class="fa-solid fa-right-long icon"></i></button>
                                     @endif
                                     </div>
@@ -48,46 +48,47 @@
 
                     <div class="col-xl-4 ratio_65">
                         <div class="row g-4">
-                                <div class="col-xl-12 col-md-6">
-                                    <div class="home-contain">
-                                        <img src="{{ asset('frontend/assets/images/homepage/' . $tops[1]->image) }}"
-                                            class="bg-img blur-up lazyload" alt="">
-                                        <div class="home-detail p-center-left home-p-sm w-75">
-                                            <div>
+                            <div class="col-xl-12 col-md-6">
+                                <div class="home-contain">
+                                    <img src="{{ asset('frontend/assets/images/homepage/' . $tops[1]->image) }}"
+                                        class="bg-img blur-up lazyload" alt="">
+                                    <div class="home-detail p-center-left home-p-sm w-75">
+                                        <div>
 
-                                                <h2 class="mt-0 text-danger">{{ $tops[1]->discount }} <span class="discount text-title">OFF</span>
-                                                </h2>
+                                            <h2 class="mt-0 text-danger">{{ $tops[1]->discount }} <span class="discount text-title">OFF</span>
+                                            </h2>
 
-                                                <h3 class="theme-color">{{ $tops[1]->phaseone }}</h3>
-                                                <p class="w-75">{{ $tops[1]->phasetwo }}</p>
-                                            @if ($productsGroupedByDiscount[45] != null)
-                                                <a href="{{ route('show-discount-product', ['ids' => $productsGroupedByDiscount[45]]) }}"
-                                                    class="shop-button">Shop Now
-                                                    <i class="fa-solid fa-right-long"></i></a>
-                                            @endif
-                                            </div>
+                                            <h3 class="theme-color">{{ $tops[1]->phaseone }}</h3>
+                                            <p class="w-75">{{ $tops[1]->phasetwo }}</p>
+                                        @if ($productsGroupedByDiscount[45] != null)
+                                            <a href="{{ route('show-discount-product', ['ids' => $productsGroupedByDiscount[45]]) }}"
+                                                class="shop-button">{{ __('messages.shop_now') }}
+                                                <i class="fa-solid fa-right-long"></i></a>
+                                        @endif
                                         </div>
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="col-xl-12 col-md-6">
-                                    <div class="home-contain">
-                                        <img src="{{ asset('frontend/assets/images/homepage/' . $tops[2]->image) }}" class="bg-img blur-up lazyload"
-                                            alt="">
-                                        <div class="home-detail p-center-left home-p-sm w-75">
-                                            <div>
-                                                <h2 class="mt-0 text-danger">{{ $tops[2]->discount }} <span class="discount text-title">OFF</span>
-                                                </h2>
-                                                <h3 class="theme-color">{{ $tops[2]->phaseone }}</h3>
-                                                <p class="w-75">{{ $tops[2]->phasetwo }}</p>
-                                            @if ($productsGroupedByDiscount[50] != null)
-                                                <a href="{{ route('show-discount-product', ['ids' => $productsGroupedByDiscount[50]]) }}" class="shop-button">Shop Now <i
-                                                        class="fa-solid fa-right-long"></i></a>
-                                            @endif
-                                            </div>
+                            <div class="col-xl-12 col-md-6">
+                                <div class="home-contain">
+                                    <img src="{{ asset('frontend/assets/images/homepage/' . $tops[2]->image) }}" class="bg-img blur-up lazyload"
+                                        alt="">
+                                    <div class="home-detail p-center-left home-p-sm w-75">
+                                        <div>
+                                            <h2 class="mt-0 text-danger">{{ $tops[2]->discount }} <span class="discount text-title">OFF</span>
+                                            </h2>
+                                            <h3 class="theme-color">{{ $tops[2]->phaseone }}</h3>
+                                            <p class="w-75">{{ $tops[2]->phasetwo }}</p>
+                                        @if ($productsGroupedByDiscount[50] != null)
+                                            <a href="{{ route('show-discount-product', ['ids' => $productsGroupedByDiscount[50]]) }}" class="shop-button">
+                                                {{ __('messages.shop_now') }} 
+                                                <i class="fa-solid fa-right-long"></i></a>
+                                        @endif
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -111,8 +112,9 @@
                                     <h6 class="text-content">{{ $tops[4]->phasetwo }}</h6>
                                 </div>
                                 @if ($productsGroupedByDiscount[5] != null)
-                                <a href="{{ route('show-discount-product', ['ids' => $productsGroupedByDiscount[5]]) }}" class="banner-button text-white">Shop Now <i
-                                        class="fa-solid fa-right-long ms-2"></i></a>
+                                <a href="{{ route('show-discount-product', ['ids' => $productsGroupedByDiscount[5]]) }}" class="banner-button text-white">
+                                    {{ __('messages.shop_now') }} 
+                                    <i class="fa-solid fa-right-long ms-2"></i></a>
                                 @endif
                             </div>
                         </div>
@@ -130,8 +132,9 @@
                                     <h6 class="text-content">{{ $tops[4]->phasetwo }}</h6>
                                 </div>
                                 @if ($productsGroupedByDiscount[10] != null)
-                                <a href="{{ route('show-discount-product', ['ids' => $productsGroupedByDiscount[10]]) }}" class="banner-button text-white">Shop Now
-                                        <i class="fa-solid fa-right-long ms-2"></i></a>
+                                <a href="{{ route('show-discount-product', ['ids' => $productsGroupedByDiscount[10]]) }}" class="banner-button text-white">
+                                    {{ __('messages.shop_now') }}
+                                    <i class="fa-solid fa-right-long ms-2"></i></a>
                                 @endif
                             </div>
                         </div>
@@ -149,8 +152,9 @@
                                     <h6 class="text-content">{{ $tops[5]->phasetwo }}</h6>
                                 </div>
                                 @if ($productsGroupedByDiscount[15] != null)
-                                <a href="{{ route('show-discount-product', ['ids' => $productsGroupedByDiscount[15]]) }}" class="banner-button text-white">Shop Now <i
-                                        class="fa-solid fa-right-long ms-2"></i></a>
+                                <a href="{{ route('show-discount-product', ['ids' => $productsGroupedByDiscount[15]]) }}" class="banner-button text-white">
+                                    {{ __('messages.shop_now') }}
+                                    <i class="fa-solid fa-right-long ms-2"></i></a>
                                 @endif
                             </div>
                         </div>
@@ -167,8 +171,10 @@
                                     <h6 class="text-content">{{ $tops[6]->phasetwo }}</h6>
                                 </div>
                                 @if ($productsGroupedByDiscount[20] != null)
-                                <a href="{{ route('show-discount-product', ['ids' => $productsGroupedByDiscount[20]]) }}" class="banner-button text-white">Shop Now <i
-                                        class="fa-solid fa-right-long ms-2"></i></a>
+                                <a href="{{ route('show-discount-product', ['ids' => $productsGroupedByDiscount[20]]) }}" class="banner-button text-white">
+                                    {{ __('messages.shop_now') }} 
+                                    <i class="fa-solid fa-right-long ms-2"></i>
+                                </a>
                                 @endif
                             </div>
                         </div>
@@ -185,7 +191,7 @@
                     <div class="col-xxl-3 col-xl-4 d-none d-xl-block">
                         <div class="p-sticky">
                             <div class="category-menu">
-                                <h3>Category</h3>
+                                <h3>{{ __('messages.category') }}</h3>
                                 <ul>
                                     @foreach($categories as $list)
                                     <li>
@@ -194,7 +200,9 @@
                                             <img src="{{ asset('images/'.$list->category_icon)}}" class="blur-up lazyload" alt="">
 
                                             <h5>
-                                                <a href="{{ url("/categorysidebar/".$list->id ) }}">{{ $list->category_name }}</a>
+                                                <a href="{{ url("/categorysidebar/".$list->id ) }}">
+                                                    {{ $list->{'category_name_' . app()->getLocale()} ?? $list->category_name }}
+                                                </a>
                                             </h5>
                                         </div>
                                     </li>
@@ -205,21 +213,27 @@
                                     <li>
                                         <div class="category-list">
                                             <h5 class="ms-0 text-title">
-                                                <a href="{{ route('show-discount-product', ['topic' => 'value-of-the-day']) }}">Today Best Seller</a>
+                                                <a href="{{ route('show-discount-product', ['topic' => 'value-of-the-day']) }}">
+                                                    {{ __('messages.today_best_sellers') }}
+                                                </a>
                                             </h5>
                                         </div>
                                     </li>
                                     <li>
                                         <div class="category-list">
                                             <h5 class="ms-0 text-title">
-                                                <a href="{{ route('show-discount-product', ['topic' => 'top-50-offers']) }}">Top 50 Discounts</a>
+                                                <a href="{{ route('show-discount-product', ['topic' => 'top-50-offers']) }}">
+                                                    {{ __('messages.top_50_discounts') }}
+                                                </a>
                                             </h5>
                                         </div>
                                     </li>
                                     <li class="mb-0">
                                         <div class="category-list">
                                             <h5 class="ms-0 text-title">
-                                                <a href="{{ route('show-discount-product', ['topic' => 'new-arrivals']) }}">New Arrivals</a>
+                                                <a href="{{ route('show-discount-product', ['topic' => 'new-arrivals']) }}">
+                                                    {{ __('messages.new_arrivals') }}
+                                                </a>
                                             </h5>
                                         </div>
                                     </li>
@@ -241,7 +255,8 @@
                                             <h3 class="fw-light">{{ $tops[7]->phasethree }}</h3>
                                         @if($seafood != null)
                                             <button onclick="window.open('{{ route('show-discount-product', ['ids' => $seafood]) }}', '_blank');"
-                                                    class="btn btn-animation btn-md mend-auto">Shop Now <i class="fa-solid fa-arrow-right icon"></i>
+                                                    class="btn btn-animation btn-md mend-auto">
+                                                    {{ __(messages.shop_now) }} <i class="fa-solid fa-arrow-right icon"></i>
                                             </button>
                                         @endif
                                         </div>
@@ -261,7 +276,8 @@
                                         @if($vegetableHalfDiscount != null)
                                             <p class="mb-3">Super Offer to {{ $tops[8]->discount }} Off</p>
                                             <button onclick="window.open('{{ route('show-discount-product', ['ids' => $vegetableHalfDiscount]) }}', '_blank');"
-                                                    class="btn btn-animation btn-md mend-auto">Shop Now <i class="fa-solid fa-arrow-right icon"></i>
+                                                    class="btn btn-animation btn-md mend-auto">
+                                                    {{ __('messages.shop_now') }} <i class="fa-solid fa-arrow-right icon"></i>
                                             </button>
                                         @endif
                                         </div>
@@ -272,8 +288,7 @@
                             @if(count($trendingProducts) > 0)
                             <div class="section-t-space">
                                 <div class="category-menu">
-                                    <h3>Trending Products</h3>
-
+                                    <h3>{{ __('messages.trending_products') }}</h3>
                                     <ul class="product-list border-0 p-0 d-block">
                                     @foreach($trendingProducts as $trending)
                                         <li>
@@ -334,18 +349,18 @@
                     @if(count($topSaveTodayProducts) > 0)
                         <div class="title title-flex">
                             <div>
-                                <h2>Today Coupon Items</h2>
+                                <h2>{{ __('messages.top_coupon_items') }}</h2>
                                 <span class="title-leaf">
                                     <svg class="icon-width">
                                         <use xlink:href="{{ asset('frontend/assets/svg/leaf.svg#leaf') }}"></use>
                                     </svg>
                                 </span>
-                                <p>Don't miss this opportunity at a special discount just for this week.</p>
+                                <p>{{ __('messages.dont_miss_opportunity') }}</p>
                             </div>
                             <div class="timing-box">
                                 <div class="timing">
                                     <i data-feather="clock"></i>
-                                    <h6 class="name">Today :</h6>
+                                    <h6 class="name">{{ __('messages.today') }} :</h6>
                                     <h6 class="name" id="formatted-date"></h6>
                                 </div>
                             </div>
@@ -378,7 +393,7 @@
                                                     <div class="product-box">
                                                     @if ($topSaveProduct->created_at->diffInDays(\Carbon\Carbon::now()) < 7)
                                                         <div class="label-tag">
-                                                            <span>NEW</span>
+                                                            <span>{{ __('messages.new') }}</span>
                                                         </div>
                                                     @endif
                                                         <div class="product-image">
@@ -409,9 +424,11 @@
                                                                     @endfor
                                                                 </ul>
                                                                 @if ($topSaveProduct->in_stock > 0)
-                                                                    <h6 class="theme-color">{{ $topSaveProduct->in_stock }} In Stock</h6>
+                                                                    <h6 class="theme-color">{{ $topSaveProduct->in_stock }} {{ __('messages.in_stock') }}</h6>
                                                                 @else
-                                                                    <h6 class="theme-color">No Stock Left</h6>
+                                                                    <h6 class="theme-color">
+                                                                        {{ __('messages.no_stock_left') }}
+                                                                    </h6>
                                                                 @endif
                                                             </div>
                                                         </div>
@@ -736,17 +753,17 @@
             <div class="cookie-box">
                 <div class="cookie-image">
                     <img src="{{ asset('frontend/assets/images/cookie-bar.png') }}" class="blur-up lazyload" alt="">
-                    <h2>Cookies!</h2>
+                    <h2>{{ __('messages.cookies') }}</h2>
                 </div>
 
                 <div class="cookie-contain">
-                    <h5 class="text-content">We use cookies to make your experience better</h5>
+                    <h5 class="text-content">{{ __('messages.we_use_cookies') }}</h5>
                 </div>
             </div>
 
             <div class="button-group">
                 <a href="{{ url('/privacy-policy') }}" class="text-content">
-                    <button class="btn privacy-button">Privacy Policy</button>
+                    <button class="btn privacy-button">{{ __('messages.privacy_policy') }}</button>
                 </a>
                 <button class="btn ok-button">OK</button>
             </div>
@@ -798,5 +815,4 @@
                 }
             });
         </script>
-
     </x-guest-layout>

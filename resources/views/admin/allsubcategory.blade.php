@@ -233,11 +233,15 @@
                     <form method="POST" action="{{ route('updatecategory_Name') }}">
                         @csrf
                         <div class="modal-body">
-
                             <div class="form-group">
                                 <input type="text" class="form-control" id="category{{ $list->categoryId }}"
                                     value="{{ old('category') ?? ($list->category ?? '') }}" name="category"
                                     placeholder={{ $list->category }}>
+                            </div>
+                            <div class="form-group" style="margin-top: 10px;">
+                                <input type="text" class="form-control" id="categoryJp{{ $list->categoryId }}"
+                                    value="{{ old('categoryJp') ?? ($list->categoryJp ?? '') }}" name="categoryJp"
+                                    placeholder={{ $list->categoryJp }}>
                             </div>
                         </div>
                         <div class="modal-footer">
@@ -338,6 +342,11 @@
                                     <input type="text" class="form-control" id="subcat{{ $list->subCatTitleId }}"
                                         value="{{ old('subcat') ?? ($list->sub_category_titlename ?? '') }}"
                                         name="subcat" placeholder={{ $list->sub_category_titlename }}>
+                                </div>
+                                <div class="form-group" style="margin-top: 10px;">
+                                    <input type="text" class="form-control" id="subcatJp{{ $list->subCatTitleId }}"
+                                        value="{{ old('subcatJp') ?? ($list->sub_category_titlename_jp ?? '') }}"
+                                        name="subcatJp" placeholder={{ $list->sub_category_titlename_jp }}>
                                 </div>
                             </div>
                             <div class="modal-footer">

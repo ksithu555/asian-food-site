@@ -98,7 +98,7 @@
                     <div class="col-xxl-3 d-xxl-block d-none">
                         <div class="top-left-header">
                             <i class="iconly-Location icli text-white"></i>
-                            <span class="text-white">4-27-5 Ikebukuro, Toshima-ku, Tokyo</span>
+                            <span class="text-white">{{ __('messages.top_bar_address') }}</span>
                         </div>
                     </div>
 
@@ -180,7 +180,7 @@
                                     <form id="mainSearchForm" action="{{ route('show-product') }}" method="GET">
                                         <div class="input-group">
                                             <input type="search" class="form-control" name="mainSearch"
-                                                placeholder="I'm searching for..."
+                                                placeholder="{{ __('messages.searching_for') }}"
                                                 value="{{ request('mainSearch') }}">
                                             <button class="btn" type="submit" id="button-addon2">
                                                 <i data-feather="search"></i>
@@ -295,7 +295,7 @@
                                                                         </button>
                                                                     </div>
                                                                     <div class="drop-contain">
-                                                                        <h5>Total</h5>
+                                                                        <h5>{{ __('messages.total') }}</h5>
 
                                                                         <h6>¥{{ number_format($cart->quantity * $cart->selling_price, 0, '.', ',') }}
                                                                         </h6>
@@ -314,14 +314,14 @@
                                                     </ul>
 
                                                     <div class="price-box">
-                                                        <h5>Total :</h5>
+                                                        <h5>{{ __('messages.total') }} :</h5>
                                                         <h4 class="theme-color fw-bold">
                                                             ¥{{ number_format($total, 0, '.', ',') }}</h4>
                                                     </div>
 
                                                     <div class="button-group">
                                                         <a href="{{ route('show_carts') }}"
-                                                            class="btn btn-sm cart-button">View Cart</a>
+                                                            class="btn btn-sm cart-button">{{ __('messages.view_cart') }}</a>
                                                         {{-- <a href="{{ url('/checkout') }}" class="btn btn-sm cart-button theme-bg-color
                                                         text-white">Checkout</a> --}}
                                                     </div>
@@ -339,10 +339,10 @@
                                             <div class="onhover-div onhover-div-login">
                                                 <ul class="user-box-name">
                                                     <li class="product-box-contain">
-                                                        <a href="{{ route('login') }}">Log In</a>
+                                                        <a href="{{ route('login') }}">{{ __('messages.login') }}</a>
                                                     </li>
                                                     <li class="product-box-contain">
-                                                        <a href="{{ route('user_register') }}">Buyer Register</a>
+                                                        <a href="{{ route('user_register') }}">{{ __('messages.buyer_register') }}</a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -366,7 +366,7 @@
                                                         <a data-bs-toggle="modal" data-bs-target="#staticBackdrop"
                                                             href="javascript:void(0)">
                                                             <i data-feather="log-out"></i>
-                                                            <span style="margin-left: 10px;">Log out</span>
+                                                            <span style="margin-left: 10px;">{{ __('messages.logout') }}</span>
                                                         </a>
                                                     </li>
                                                 </ul>
@@ -388,12 +388,12 @@
                         <div class="header-nav-left">
                             <button class="dropdown-category">
                                 <i data-feather="align-left"></i>
-                                <span>All Categories</span>
+                                <span>{{ __('messages.all_categories') }}</span>
                             </button>
 
                             <div class="category-dropdown">
                                 <div class="category-title">
-                                    <h5>All Categories</h5>
+                                    <h5>{{ __('messages.all_categories') }}</h5>
                                     <button type="button" class="btn p-0 close-button text-content">
                                         <i class="fa-solid fa-xmark"></i>
                                     </button>
@@ -404,7 +404,7 @@
                                             <a href="javascript:void(0)" class="category-name">
                                                 <img src="{{ asset('images/' . $category->category_icon) }}"
                                                     alt="">
-                                                <h6>{{ $category->category_name }}</h6>
+                                                <h6>{{ $category->{'category_name_' .app()->getLocale() } ?? $category->category_name }}</h6>
                                                 <i class="fa-solid fa-angle-right"></i>
                                             </a>
 
@@ -412,13 +412,15 @@
                                                 @foreach ($category->subCategoryTitle as $subCategoryTitle)
                                                     <div class="list-1" style="margin-left: 10px;margin-top: 10px;">
                                                         <div class="category-title-box">
-                                                            <h5>{{ $subCategoryTitle->sub_category_titlename }}</h5>
+                                                            <h5>{{ $subCategoryTitle->{'sub_category_titlename_' . app()->getLocale() } ?? $subCategoryTitle->sub_category_titlename }}</h5>
                                                         </div>
                                                         @foreach ($subCategoryTitle->subCategory as $subCategory)
                                                             <ul>
                                                                 <li>
                                                                     <a
-                                                                        href="{{ url('/subcategorysidebar/' . $subCategory->id) }}">{{ $subCategory->sub_category_name }}</a>
+                                                                        href="{{ url('/subcategorysidebar/' . $subCategory->id) }}">
+                                                                        {{ $subCategory->{'sub_category_name_' . app()->getLocale() } ?? $subCategory->sub_category_name }}
+                                                                    </a>
                                                                 </li>
                                                             </ul>
                                                         @endforeach
@@ -435,7 +437,7 @@
                             <div class="main-nav navbar navbar-expand-xl navbar-light navbar-sticky">
                                 <div class="offcanvas offcanvas-collapse order-xl-2" id="primaryMenu">
                                     <div class="offcanvas-header navbar-shadow">
-                                        <h5>Menu</h5>
+                                        <h5>{{ __('messages.menu') }}</h5>
                                         <button class="btn-close lead" type="button"
                                             data-bs-dismiss="offcanvas"></button>
                                     </div>
@@ -444,31 +446,40 @@
                                         <ul class="navbar-nav">
                                             @if (empty(Auth::user()))
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link " href="{{ url('/') }}">Home</a>
+                                                    <a class="nav-link " href="{{ url('/') }}">
+                                                        {{ __('messages.home') }}
+                                                    </a>
                                                 </li>
                                             @endif
 
                                             @if (!empty(Auth::user()))
                                                 <li class="nav-item dropdown">
-                                                    <a class="nav-link" href="{{ url('/user') }}">My Menu</a>
-
+                                                    <a class="nav-link" href="{{ url('/user') }}">
+                                                        {{ __('messages.my_menu') }}
+                                                    </a>
                                                 </li>
                                             @endif
 
                                             <li class="nav-item dropdown">
-                                                <a class="nav-link " href="{{ url('/products') }}">Products</a>
+                                                <a class="nav-link " href="{{ url('/products') }}">
+                                                    {{ __('messages.products') }}
+                                                </a>
                                             </li>
 
 
                                             <li class="nav-item dropdown">
-                                                <a class="nav-link " href="{{ route('shoplist') }}">Shop</a>
+                                                <a class="nav-link " href="{{ route('shoplist') }}">
+                                                    {{ __('messages.shop') }}
+                                                </a>
                                             </li>
 
                                             @if ($specialCorner->isNotEmpty())
                                                 <li class="nav-item dropdown dropdown-mega">
                                                     <a class="nav-link menu dropdown-toggle ps-xl-2 ps-0"
                                                         href="javascript:void(0)" data-bs-toggle="dropdown">
-                                                        <span class="menu">Special Corner</span>
+                                                        <span class="menu">
+                                                            {{ __('messages.special_corner') }}
+                                                        </span>
                                                     </a>
 
                                                     <div class="dropdown-menu dropdown-menu-2">
@@ -483,12 +494,12 @@
                                                                 @endif
                                                                 <div class="dropdown-column col-xl-3">
                                                                     <h5 class="dropdown-header">
-                                                                        {{ $subCategoryTitle->sub_category_titlename }}
+                                                                        {{ $subCategoryTitle->{'sub_category_titlename_' . app()->getLocale()} ?? $subCategoryTitle->sub_category_titlename }}
                                                                     </h5>
                                                                     @foreach ($subCategoryTitle->subCategory as $subCategory)
                                                                         <a class="dropdown-item"
                                                                             href="{{ url('/specialsubcategorysidebar/' . $subCategory->id) }}">
-                                                                            {{ $subCategory->sub_category_name }}
+                                                                            {{ $subCategory->{'sub_category_name_' . app()->getLocale() } ?? $subCategory->sub_category_name }}
                                                                         </a>
                                                                     @endforeach
                                                                 </div>
@@ -504,24 +515,26 @@
 
                                     @if (empty(Auth::user()))
                                         <li class="nav-item dropdown">
-                                            <a class="nav-link" href="{{ url('/faq') }}">FAQ</a>
-
+                                            <a class="nav-link" href="{{ url('/faq') }}">
+                                                {{ __('messages.faq') }}
+                                            </a>
                                         </li>
                                     @endif
 
                                     @if (empty(Auth::user()))
                                         <li class="nav-item dropdown new-nav-item">
                                             @if ($newBlogsExist)
-                                                <label class="new-dropdown">New</label>
+                                                <label class="new-dropdown">
+                                                    {{ __('messages.news') }}
+                                                </label>
                                             @endif
-                                            <a class="nav-link" href="{{ url('/news') }}">Blog</a>
+                                            <a class="nav-link" href="{{ url('/news') }}">
+                                                {{ __('messages.blog') }}
+                                            </a>
                                         </li>
                                     @endif
-
                                     </ul>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
@@ -529,14 +542,18 @@
                         <div class="header-nav-right">
                             <button class="btn deal-button" data-bs-toggle="modal" data-bs-target="#deal-box">
                                 <i data-feather="zap"></i>
-                                <span>Deal Today</span>
+                                <span>
+                                    {{ __('messages.deal_today') }}
+                                </span>
                             </button>
                         </div>
                     @else
                         <div class="header-nav-right">
                             <button class="btn deal-button" data-bs-toggle="modal">
                                 <i data-feather="zap"></i>
-                                <a href="{{ route('login') }}" style="color:#0da487"><span> Deal Today</span></a>
+                                <a href="{{ route('login') }}" style="color:#0da487">
+                                    <span> {{ __('messages.deal_today') }}</span>
+                                </a>
                             </button>
                         </div>
                     @endif
@@ -553,35 +570,35 @@
             <li class="active">
                 <a href="{{ url('/') }}">
                     <i class="iconly-Home icli"></i>
-                    <span>Home</span>
+                    <span>{{ __('messages.home') }}</span>
                 </a>
             </li>
 
             <li class="mobile-category">
                 <a href="javascript:void(0)">
                     <i class="iconly-Category icli js-link"></i>
-                    <span>Category</span>
+                    <span>{{ __('messages.category') }}</span>
                 </a>
             </li>
 
             <li>
                 <a href="{{ url('/search') }}" class="search-box">
                     <i class="iconly-Search icli"></i>
-                    <span>Search</span>
+                    <span>{{ __('messages.search') }}</span>
                 </a>
             </li>
 
             <li>
                 <a href="{{ url('/wishlist') }}" class="notifi-wishlist">
                     <i class="iconly-Heart icli"></i>
-                    <span>My Wish</span>
+                    <span>{{ __('messages.my_wish') }}</span>
                 </a>
             </li>
 
             <li>
                 <a href="{{ url('/carts') }}">
                     <i class="iconly-Bag-2 icli fly-cate"></i>
-                    <span>Cart</span>
+                    <span>{{ __('messages.cart') }}</span>
                 </a>
             </li>
         </ul>
@@ -605,7 +622,7 @@
                                 </div>
 
                                 <div class="service-detail">
-                                    <h5>Every Fresh Products</h5>
+                                    <h5>{{ __('messages.every_fresh_products') }}</h5>
                                 </div>
                             </div>
 
@@ -616,7 +633,7 @@
                                 </div>
 
                                 <div class="service-detail">
-                                    <h5>Free Delivery For Order Over ¥5000</h5>
+                                    <h5>{{ __('messages.free_delivery_over_5000') }}</h5>
                                 </div>
                             </div>
 
@@ -627,7 +644,7 @@
                                 </div>
 
                                 <div class="service-detail">
-                                    <h5>Daily Mega Discounts</h5>
+                                    <h5>{{ __('messages.daily_mega_discounts') }}</h5>
                                 </div>
                             </div>
 
@@ -638,7 +655,7 @@
                                 </div>
 
                                 <div class="service-detail">
-                                    <h5>Best Price On The Market</h5>
+                                    <h5>{{ __('messages.best_price_on_market') }}</h5>
                                 </div>
                             </div>
                         </div>
@@ -658,13 +675,16 @@
                             </div>
 
                             <div class="footer-logo-contain">
-                                <p>Specializing in Asian cuisine, we're dedicated to providing fresh, top-quality food
-                                    to Japan daily.</p>
+                                <p>
+                                    {{ __('messages.specializing_in_asian_cuisine') }}
+                                </p>
 
                                 <ul class="address">
                                     <li>
                                         <i data-feather="home"></i>
-                                        <a href="javascript:void(0)">4-27-5 Ikebukuro, Toshima-ku, Tokyo</a>
+                                        <a href="javascript:void(0)">
+                                            {{ __('messages.top_bar_address') }}
+                                        </a>
                                     </li>
                                     <li>
                                         <i data-feather="mail"></i>
@@ -673,7 +693,7 @@
                                 </ul>
                                 <div class="sub-footer" style="border-top: none;">
                                     <div class="social-link" style="margin-top: 10px; justify-content: left;">
-                                        <h5 class="text-content">Stay connected :</h5>
+                                        <h5 class="text-content">{{ __('messages.stay_connected') }} :</h5>
                                         <ul>
                                             <li>
                                                 <a href="https://www.facebook.com/" target="_blank">
@@ -704,7 +724,7 @@
 
                     <div class="col-xl-2 col-lg-3 col-md-4 col-sm-6">
                         <div class="footer-title">
-                            <h4>Categories</h4>
+                            <h4>{{ __('messages.categories') }}</h4>
                         </div>
 
                         <div class="footer-contain">
@@ -712,7 +732,7 @@
                                 @foreach ($categories as $category)
                                     <li>
                                         <a href="{{ url('/categorysidebar/' . $category->id) }}"
-                                            class="text-content">{{ $category->category_name }}</a>
+                                            class="text-content">{{ $category->{'category_name_' .app()->getLocale() } ?? $category->category_name }}</a>
                                     </li>
                                 @endforeach
                             </ul>
@@ -721,28 +741,28 @@
 
                     <div class="col-xl col-lg-2 col-sm-3">
                         <div class="footer-title">
-                            <h4>Useful Links</h4>
+                            <h4>{{ __('messages.useful_links') }}</h4>
                         </div>
 
                         <div class="footer-contain">
                             <ul>
                                 <li>
-                                    <a href="{{ url('/') }}" class="text-content">Home</a>
+                                    <a href="{{ url('/') }}" class="text-content">{{ __('messages.home') }}</a>
                                 </li>
                                 <li>
-                                    <a class="text-content " href="{{ url('/products') }}">Products</a>
+                                    <a class="text-content " href="{{ url('/products') }}">{{ __('messages.products') }}</a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('shoplist') }}" class="text-content">Shop</a>
+                                    <a href="{{ route('shoplist') }}" class="text-content">{{ __('messages.shop') }}</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/news') }}" class="text-content">Blog</a>
+                                    <a href="{{ url('/news') }}" class="text-content">{{ __('messages.blog') }}</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/contact') }}" class="text-content">Contact Us</a>
+                                    <a href="{{ url('/contact') }}" class="text-content">{{ __('messages.contact_us') }}</a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/our-story') }}" class="text-content">Our Story</a>
+                                    <a href="{{ url('/our-story') }}" class="text-content">{{ __('messages.our_story') }}</a>
                                 </li>
                             </ul>
                         </div>
@@ -750,45 +770,61 @@
 
                     <div class="col-xl-2 col-sm-3">
                         <div class="footer-title">
-                            <h4>Help Center</h4>
+                            <h4>{{ __('messages.help_center') }}</h4>
                         </div>
 
                         <div class="footer-contain">
                             <ul>
                                 @if (empty(Auth::user()))
                                     <li>
-                                        <a href="{{ route('seller.register') }}" class="text-content">Seller
-                                            Register</a>
+                                        <a href="{{ route('seller.register') }}" class="text-content">
+                                            {{ __('messages.seller_register') }}
+                                        </a>
                                     </li>
                                 @endif
                                 @if (!empty(Auth::user()))
                                     <li>
-                                        <a href="{{ route('user_profile') }}" class="text-content">Your Account</a>
+                                        <a href="{{ route('user_profile') }}" class="text-content">
+                                            {{ __('messages.your_account') }}
+                                        </a>
                                     </li>
                                     <li>
-                                        <a href="{{ route('user_order') }}" class="text-content">Track Order</a>
+                                        <a href="{{ route('user_order') }}" class="text-content">
+                                            {{ __('messages.track_order') }}
+                                        </a>
                                     </li>
                                 @endif
                                 <li>
-                                    <a href="{{ url('/wishlist') }}" class="text-content">Your Wishlist</a>
+                                    <a href="{{ url('/wishlist') }}" class="text-content">
+                                        {{ __('messages.your_wishlist') }}
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/comparelist') }}" class="text-content">Your Compare List</a>
+                                    <a href="{{ url('/comparelist') }}" class="text-content">
+                                        {{ __('messages.your_compare_list') }}
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="{{ route('footer_search') }}" class="text-content">Search</a>
+                                    <a href="{{ route('footer_search') }}" class="text-content">
+                                        {{ __('messages.search') }}
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/faq') }}" class="text-content">FAQ</a>
+                                    <a href="{{ url('/faq') }}" class="text-content">
+                                        {{ __('messages.faq') }}
+                                    </a>
                                 </li>
                                 <li>
-                                    <a href="{{ url('/term-and-condition') }}" class="text-content">Terms and
-                                        Conditions</a>
+                                    <a href="{{ url('/term-and-condition') }}" class="text-content">
+                                        {{ __('messages.terms_and_conditions') }}
+                                    </a>
                                 </li>
 
                                 <li class="social-app mb-0">
                                     <a href="{{ url('/privacy-policy') }}" class="text-content">
-                                        <h5 class="mb-2 text-content">Privacy policy</h5>
+                                        <h5 class="mb-2 text-content">
+                                            {{ __('messages.privacy_policy') }}
+                                        </h5>
                                     </a>
                                 </li>
                             </ul>
@@ -797,7 +833,7 @@
 
                     <div class="col-xl-3 col-lg-4 col-sm-6">
                         <div class="footer-title">
-                            <h4>Contact Us</h4>
+                            <h4>{{ __('messages.contact_us') }}</h4>
                         </div>
 
                         <div class="footer-contact">
@@ -806,7 +842,7 @@
                                     <div class="footer-number">
                                         <i data-feather="phone"></i>
                                         <div class="contact-number">
-                                            <h6 class="text-content">Hotline</h6>
+                                            <h6 class="text-content">{{ __('messages.hotline') }}</h6>
                                             <h5>(+81) 03-3981-5090</h5>
                                         </div>
                                     </div>
@@ -816,7 +852,7 @@
                                     <div class="footer-number">
                                         <i data-feather="mail"></i>
                                         <div class="contact-number">
-                                            <h6 class="text-content">Email Address :</h6>
+                                            <h6 class="text-content">{{ __('messages.email') }} :</h6>
                                             <h5>support@asian-food.site</h5>
                                         </div>
                                     </div>
@@ -895,10 +931,10 @@
                 <div class="modal-header">
                     <div>
                         @if ($deal->count() > 0)
-                            <h5 class="modal-title w-100" id="deal_today">Deal Today</h5>
-                            <p class="mt-1 text-content">Your ordered items for today.</p>
+                            <h5 class="modal-title w-100" id="deal_today">{{ __('messages.deal_today') }}</h5>
+                            <p class="mt-1 text-content">{{ __('messages.ordered_items_today') }}</p>
                         @else
-                            <p class="mt-1 text-content">Today, no order yet.</p>
+                            <p class="mt-1 text-content">{{ __('messages.no_order_today') }}</p>
                         @endif
                     </div>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
@@ -958,11 +994,11 @@
                     <ul>
                         <li>
                             <div class="setting-name">
-                                <h4>Color</h4>
+                                <h4>{{ __('messages.color') }}</h4>
                             </div>
                             <div class="theme-setting-button color-picker">
                                 <form class="form-control">
-                                    <label for="colorPick" class="form-label mb-0">Theme Color</label>
+                                    <label for="colorPick" class="form-label mb-0">{{ __('messages.theme_color') }}</label>
                                     <input type="color" class="form-control form-control-color" id="colorPick"
                                         value="#0da487" title="Choose your color">
                                 </form>
@@ -971,11 +1007,11 @@
 
                         <li>
                             <div class="setting-name">
-                                <h4>Dark</h4>
+                                <h4>{{ __('messages.dark') }}</h4>
                             </div>
                             <div class="theme-setting-button">
-                                <button class="btn btn-2 outline" id="darkButton">Dark</button>
-                                <button class="btn btn-2 unline" id="lightButton">Light</button>
+                                <button class="btn btn-2 outline" id="darkButton">{{ __('messages.dark') }}</button>
+                                <button class="btn btn-2 unline" id="lightButton">{{ __('messages.light') }}</button>
                             </div>
                         </li>
 
@@ -1005,24 +1041,28 @@
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header d-block text-center">
-                    <h5 class="modal-title w-100" id="exampleModalLabel">Logging Out</h5>
+                    <h5 class="modal-title w-100" id="exampleModalLabel">{{ __('messages.logging_out') }}</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="remove-box">
-                        <p>Are you sure you want to log out?</p>
+                        <p>{{ __('messages.are_you_sure_to_logout') }}</p>
                     </div>
                 </div>
                 <div class="modal-footer">
                     <form method="POST" action="{{ route('adminlogout') }}">
                         @csrf
                         <button type="submit" class="btn btn-animation btn-md fw-bold"
-                            style="background: #0da487; !important;">Yes</button>
+                            style="background: #0da487; !important;">
+                            {{ __('messages.btn_yes') }}
+                        </button>
                     </form>
                     <button type="button" class="btn btn-animation btn-md fw-bold" data-bs-dismiss="modal"
-                        style="background: #6c757d;">No</button>
+                        style="background: #6c757d;">
+                        {{ __('messages.btn_no') }}
+                    </button>
                 </div>
             </div>
         </div>
