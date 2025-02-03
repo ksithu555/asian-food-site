@@ -689,7 +689,7 @@
                                                                 ->where('id', $product->category_id)
                                                                 ->first();
                                                         @endphp
-                                                        {{ $category->category_name }}
+                                                        {{ $category->{'category_name_' . app()->getLocale() } ?? $category->category_name }}
                                                     </h6>
                                                 </div>
                                             </li>
