@@ -654,14 +654,14 @@
                                         </div>
 
                                         <div class="product-detail">
-                                            <h4>{{ _('messages.product_details') }} :</h4>
+                                            <h4>{{ __('messages.product_details') }} :</h4>
                                             <p>{!! $product->long_desc !!}</p>
                                         </div>
 
                                         <ul class="brand-list">
                                             <li>
                                                 <div class="brand-box">
-                                                    <h5>{{ _('messages.brand_name') }}:</h5>
+                                                    <h5>{{ __('messages.brand_name') }}:</h5>
                                                     <h6>
                                                         @php
                                                             $brand = DB::table('brands')
@@ -675,14 +675,14 @@
 
                                             <li>
                                                 <div class="brand-box">
-                                                    <h5>{{ _('messages.product_code') }}:</h5>
+                                                    <h5>{{ __('messages.product_code') }}:</h5>
                                                     <h6>{{ $product->product_code }}</h6>
                                                 </div>
                                             </li>
 
                                             <li>
                                                 <div class="brand-box">
-                                                    <h5>{{ _('messages.category') }}:</h5>
+                                                    <h5>{{ __('messages.category') }}:</h5>
                                                     <h6>
                                                         @php
                                                             $category = DB::table('categories')
@@ -696,7 +696,7 @@
 
                                             <li>
                                                 <div class="brand-box">
-                                                    <h5>{{ _('messages.in_stock') }}:</h5>
+                                                    <h5>{{ __('messages.in_stock') }}:</h5>
                                                     <h6>{{ $product->in_stock }}</h6>
                                                 </div>
                                             </li>
@@ -747,12 +747,12 @@
                                             <button onclick="addToCart({{ $product->id }})"
                                                 class="btn btn-md add-cart-button icon"
                                                 @if ($product->in_stock < 1) disabled @endif>
-                                                {{ _('messages.btn_add_to_cart') }}</button>
+                                                {{ __('messages.btn_add_to_cart') }}</button>
 
                                             <button
                                                 onclick="location.href = '{{ route('show-product-left-thumbnail', ['id' => $product->id]) }}';"
                                                 class="btn theme-bg-color view-button icon text-white fw-bold btn-md">
-                                                {{ _('messages.btn_view_more_details') }}</button>
+                                                {{ __('messages.btn_view_more_details') }}</button>
                                         </div>
                                     </div>
                                 </div>
