@@ -136,5 +136,6 @@ return [
     'your_message_has_been_sent_successfully' => 'Your message has been sent successfully.',
     'blog_list' => 'Blog List',
     'read_more' => 'Read More',
-    'recent_posts' => 'Recent Posts'
+    'recent_posts' => 'Recent Posts',
+    'sub_category' => 'Sub Category'
 ];

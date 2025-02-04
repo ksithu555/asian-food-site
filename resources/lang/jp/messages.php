@@ -136,5 +136,6 @@ return [
     'your_message_has_been_sent_successfully' => 'メッセージが送信されました',
     'blog_list' => 'ブログリスト',
     'read_more' => 'もっと読む',
-    'recent_posts' => '最近の投稿'
+    'recent_posts' => '最近の投稿',
+    'sub_category' => 'サブカテゴリー',
 ];
