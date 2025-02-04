@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Shop List</h2>
+                        <h2>{{ __('messages.shop_list') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -14,7 +14,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Shop</li>
+                                <li class="breadcrumb-item active">{{ __('messages.shop') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -40,7 +40,7 @@
         <div class="container-fluid-lg">
             <div class="row g-4">
                 @if($lists->count() < 1)
-                        <h1 class="text-center">No Shop Available</h1>
+                        <h1 class="text-center">{{ __('messages.no_shop_available') }}</h1>
                 @endif
                 @foreach($lists as $shop => $seller)
                 <div class="col-xxl-4 col-md-6">
@@ -53,7 +53,7 @@
                                     </div>
 
                                     <div class="contact-detail">
-                                        <h5>Address: <span> 〒{{ formatZipCode($seller->zip_code) }}</span>
+                                        <h5>{{ __('messages.address') }}: <span> 〒{{ formatZipCode($seller->zip_code) }}</span>
                                             <span> {{ $seller->city }} {{ $seller->chome }} {{ $seller->building }} {{ $seller->room }}</span></h5>
                                     </div>
                                 </div>
@@ -65,13 +65,13 @@
 
                                     <div class="contact-detail">
 
-                                        <h5>Contact Us: <span>{{ $seller -> phone }}</span></h5>
+                                        <h5>{{ __('messages.contact_us') }}: <span>{{ $seller -> phone }}</span></h5>
                                     </div>
                                 </div>
                             </div>
                             <div class="contain-name">
                                 <div>
-                                    <h6>Since {{ \Carbon\Carbon::parse($seller->shop_establish)->format('Y') }}
+                                    <h6>{{ __('messages.since') }} {{ \Carbon\Carbon::parse($seller->shop_establish)->format('Y') }}
                                     </h6>
                                     <h3>{{ $seller->shop_name }}</h3>
                                     <div class="product-rating">
@@ -84,7 +84,7 @@
                                                 @endif
                                             @endfor
                                         </ul>
-                                        <span>({{ $ratingWithProductCount[$shop][1] }} <?php echo ($ratingWithProductCount[$shop][1] > 1) ? 'Reviews' : 'Review'; ?>)</span>
+                                        <span>({{ $ratingWithProductCount[$shop][1] }} {{ $ratingWithProductCount[$shop][1] > 1 ? __('messages.reviews') : __('messages.review') }})</span>
                                     </div>
                                     @php $shopProductCount = 0; @endphp
                                     @foreach ($seller->user->products as $product)
@@ -93,9 +93,9 @@
                                         @endif
                                     @endforeach
                                     @if ($shopProductCount > 1)
-                                    <span class="product-label">{{ $shopProductCount }} Products</span>
+                                    <span class="product-label">{{ $shopProductCount }} {{ __('messages.products') }}</span>
                                     @else
-                                    <span class="product-label">{{ $shopProductCount }} Product</span>
+                                    <span class="product-label">{{ $shopProductCount }} {{ __('messages.product') }}</span>
                                     @endif
                                 </div>
 

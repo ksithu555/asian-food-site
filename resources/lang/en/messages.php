@@ -112,4 +112,8 @@ return [
     'valid_your_email_error_message' => 'Please enter a valid email address.',
     'sending_newsletter_mail_successfully' => 'Thank you for subscribing to our newsletter.',
     'duplicate_email_error_message' => 'This email address is already subscribed to our newsletter.',
+    'shop_list' => 'Shop List',
+    'no_shop_available' => 'No shop available.',
+    'since' => 'Since',
+    'review' => 'Review',
 ];

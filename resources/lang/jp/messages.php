@@ -112,4 +112,8 @@ return [
     'valid_your_email_error_message' => '有効なメールアドレスを入力してください',
     'sending_newsletter_mail_successfully' => 'ニュースレターの購読ありがとうございます',
     'duplicate_email_error_message' => 'このメールアドレスはすでにニュースレターに登録されています',
+    'shop_list' => 'ショップリスト',
+    'no_shop_available' => 'ショップはありません。',
+    'since' => '開始日',
+    'review' => 'レビュー',
 ];
