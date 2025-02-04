@@ -2899,7 +2899,7 @@ class AdminController extends Controller
             ];
             \Mail::to($inquiry_email)->send(new \App\Mail\FAQContact($data));
 
-            return redirect('/faq#ts-form')->with('success', 'Your message has been successfully sent.');
+            return redirect('/faq#ts-form')->with('success', __('messages.your_message_has_been_sent_successfully'));
         } else if ($request->from == 'contact') {
             $inquiry_email = 'info-test@asia-hd.com';
             $contactDate = Carbon::now()->format('M d, Y');
@@ -2914,7 +2914,7 @@ class AdminController extends Controller
             ];
             \Mail::to($inquiry_email)->send(new \App\Mail\GuestContact($data));
 
-            return redirect('/contact#contact-form')->with('success', 'Your message has been successfully sent.');
+            return redirect('/contact#contact-form')->with('success', __('messages.your_message_has_been_sent_successfully'));
         }
     }
 
