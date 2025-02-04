@@ -2007,7 +2007,7 @@ class AdminController extends Controller
 
         if ($existingEmail) {
 
-            $msg = trans('Email is duplicated.', ['name' => $request->title]);
+            $msg = trans('messages.duplicate_email_error_message');
             return redirect('/')->with('error', $msg);
         }
 
@@ -2020,11 +2020,11 @@ class AdminController extends Controller
                 'updated_at' => $time->format('Y-m-d H:i:s')
             ]);
 
-            $msg = trans('Sending newsletter mail successfully', ['name' => $request->title]);
+            $msg = trans('messages.sending_newsletter_mail_successfully');
             return redirect('/')->with('success', $msg);
         }
 
-        return redirect('/')->with('success', $msg);
+        return redirect('/')->with('success', '');
     }
 
     public function storeblog(Request $request)

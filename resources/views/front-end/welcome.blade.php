@@ -256,7 +256,7 @@
                                         @if($seafood != null)
                                             <button onclick="window.open('{{ route('show-discount-product', ['ids' => $seafood]) }}', '_blank');"
                                                     class="btn btn-animation btn-md mend-auto">
-                                                    {{ __(messages.shop_now) }} <i class="fa-solid fa-arrow-right icon"></i>
+                                                    {{ __('messages.shop_now') }} <i class="fa-solid fa-arrow-right icon"></i>
                                             </button>
                                         @endif
                                         </div>
@@ -452,23 +452,22 @@
                                             <div>
                                                 <h3 class="lh-base fw-bold offer-text">{{ $coupon->name }}</h3>
                                                 <h4 class="lh-base fw-bold offer-text">
-                                                    Get ¥{{ number_format($coupon->discount_amount, 0, '', ',') }} Cashback! Min Order of
-                                                        ¥{{ number_format($coupon->mini_amount, 0, '', ',') }}
+                                                    {{ __('messages.get_cashback', ['amount' => number_format($coupon->discount_amount, 0, '', ','), 'min_amount' => number_format($coupon->mini_amount, 0, '', ',')]) }}
                                                 </h4>
-                                                <h5 class="lh-base fw-bold offer-text">Expired Date :
+                                                <h5 class="lh-base fw-bold offer-text">{{ __('messages.expired_date') }} :
                                                     {{ date('Y/m/d', strtotime($coupon->startdate)) }} ~
                                                     {{ date('Y/m/d', strtotime($coupon->enddate)) }}
                                                 </h5>
                                                 @if ($coupon->seller)
                                                     @if ($coupon->seller->coupon_status == 1)
-                                                    <h4 class="lh-base fw-bold offer-text">Publisher : {{ $coupon->seller->shop_name }}</h4>
+                                                    <h4 class="lh-base fw-bold offer-text">{{ __('messages.publisher') }} : {{ $coupon->seller->shop_name }}</h4>
                                                     @endif
                                                 @elseif ($coupon->product->first())
                                                     @if ($coupon->product->first()->coupon_status == 1)
-                                                    <h4 class="lh-base fw-bold offer-text">Publisher : Asian Food Museum</h4>
+                                                    <h4 class="lh-base fw-bold offer-text">{{ __('messages.publisher') }} : Asian Food Museum</h4>
                                                     @endif
                                                 @endif
-                                                <h6 class="coupon-code">Use Code : {{ $coupon->coupon_code}}</h6>
+                                                <h6 class="coupon-code">{{ __('messages.use_code') }} : {{ $coupon->coupon_code}}</h6>
                                             </div>
                                         </div>
                                     </div>
@@ -481,13 +480,13 @@
                     @endif
 
                         <div class="title section-t-space">
-                            <h2>Browse by Categories</h2>
+                            <h2>{{ __('messages.browse_by_categories') }}</h2>
                             <span class="title-leaf">
                                 <svg class="icon-width">
                                     <use xlink:href="{{ asset('frontend/assets/svg/leaf.svg#leaf') }}"></use>
                                 </svg>
                             </span>
-                            <p>Top Categories Of The Week</p>
+                            <p>{{ __('messages.top_categories_of_the_week') }}</p>
                         </div>
 
                         <div class="category-slider-2 product-wrapper no-arrow">
@@ -496,7 +495,7 @@
                                 <a href="{{ url("/categorysidebar/".$list->id ) }}" class="category-box category-dark">
                                     <div>
                                         <img src="{{ asset('images/'.$list->category_icon) }}" class="blur-up lazyload" alt="">
-                                        <h5>{{ $list->category_name }}</h5>
+                                        <h5>{{ $list->{'category_name_' . app()->getlocale() } ?? $list->category_name }}</h5>
                                     </div>
                                 </a>
                             </div>
@@ -517,7 +516,7 @@
                                                 <h4 class="text-russo fw-normal theme-color mb-2">{{ $tops[9]->phaseone }}</h4>
                                             @if($meatHalfDiscount != null)
                                                 <button onclick="location.href = '{{ route('show-discount-product', ['ids' => $meatHalfDiscount]) }}';"
-                                                    class="btn btn-animation btn-sm mend-auto">Shop Now <i
+                                                    class="btn btn-animation btn-sm mend-auto">{{ __('messages.shop_now') }} <i
                                                         class="fa-solid fa-arrow-right icon"></i></button>
                                             @endif
                                             </div>
@@ -537,7 +536,7 @@
                                                 <h4 class="text-russo fw-normal theme-color mb-2">{{ $tops[10]->phaseone }}</h4>
                                             @if($vegetableHalfDiscount != null)
                                                 <button onclick="location.href = '{{ route('show-discount-product', ['ids' => $vegetableHalfDiscount]) }}';"
-                                                    class="btn btn-animation btn-sm mend-auto">Shop Now <i
+                                                    class="btn btn-animation btn-sm mend-auto">{{ __('messages.shop_now') }} <i
                                                         class="fa-solid fa-arrow-right icon"></i></button>
                                             @endif
                                             </div>
@@ -565,7 +564,7 @@
                                                 </p>
                                             @if ($productsGroupedByDiscount[25] != null)
                                                 <button onclick="location.href = '{{ route('show-discount-product', ['ids' => $productsGroupedByDiscount[25]]) }}';"
-                                                    class="btn btn-animation btn-sm mend-auto">Shop Now <i
+                                                    class="btn btn-animation btn-sm mend-auto">{{ __('messages.shop_now') }} <i
                                                         class="fa-solid fa-arrow-right icon"></i></button>
                                             @endif
                                             </div>
@@ -597,13 +596,13 @@
                         @if($productCount > 0)
                         <div class="title d-block">
                             <div>
-                                <h2>Our best Seller</h2>
+                                <h2>{{ __('messages.our_best_sellers') }}</h2>
                                 <span class="title-leaf">
                                     <svg class="icon-width">
                                         <use xlink:href="{{ asset('frontend/assets/svg/leaf.svg#leaf') }}"></use>
                                     </svg>
                                 </span>
-                                <p>Indulge in Perfection, Taste the Best.</p>
+                                <p> {{ __('messages.indulge_in_perfection') }} </p>
                             </div>
                         </div>
 
@@ -658,7 +657,7 @@
                                         <h2 class="banner-title">{{ $tops[13]->phasetwo }}</h2>
                                     @if($vegetable != null)
                                         <button onclick="location.href = '{{ route('show-discount-product', ['ids' => $vegetable]) }}';"
-                                            class="btn btn-animation btn-sm mx-auto mt-sm-3 mt-2">Shop Now <i
+                                            class="btn btn-animation btn-sm mx-auto mt-sm-3 mt-2">{{ __('messages.shop_now') }} <i
                                                 class="fa-solid fa-arrow-right icon"></i></button>
                                     @endif
                                     </div>
@@ -668,13 +667,13 @@
 
 
                         <div class="title section-t-space">
-                            <h2>Blog</h2>
+                            <h2>{{ __('messages.blog') }}</h2>
                             <span class="title-leaf">
                                 <svg class="icon-width">
                                     <use xlink:href="{{ asset('frontend/assets/svg/leaf.svg#leaf') }}"></use>
                                 </svg>
                             </span>
-                            <p>Savoring Life's Flavors, One Bite at a Time.</p>
+                            <p> {{ __('messages.savoring_life_favors') }} </p>
                         </div>
 
                         <div class="slider-3-blog ratio_65 no-arrow product-wrapper">
@@ -717,17 +716,17 @@
                             <div class="row">
                                 <div class="col-xxl-4 col-lg-5 col-md-7 col-sm-9 offset-xxl-2 offset-md-1">
                                     <div class="newsletter-detail">
-                                        <h2>Join Our Newsletter And Get...</h2>
-                                        <h5>Get access to the latest information.</h5>
+                                        <h2>{{ __('messages.newsletter_join') }}</h2>
+                                        <h5>{{ __('messages.newsletter_access') }}</h5>
                                         @php $action= route('registernewsletter'); @endphp
                                         <form class="theme-form theme-form-2 mega-form" id="registernewsletter" class="contact-form" method="POST" action="{{ $action }}" enctype="multipart/form-data">
                                             @csrf
                                             <div class="input-box">
                                                 <input type="email" class="form-control" id="newsletter" name="newsletter"
-                                                    placeholder="Enter Your Email">
+                                                    placeholder="{{ __('messages.enter_your_email') }}">
                                                 <i class="fa-solid fa-envelope arrow"></i>
                                                 <button class="sub-btn btn-submit  btn-animation">
-                                                    <span class="d-sm-block d-none">Subscribe</span>
+                                                    <span class="d-sm-block d-none">{{ __('messages.subscribe') }}</span>
                                                     <i class="fa-solid fa-arrow-right icon"></i>
                                                 </button>
                                             </div>
@@ -800,13 +799,16 @@
                 $('.error').hide();
                 var email = $.trim($("#newsletter").val());
                 var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-
+                const localeMessages = {
+                    enterYourEmail: "{{ __('messages.enter_your_email_error_message') }}",
+                    validYourEmail: "{{ __('messages.valid_your_email_error_message') }}"
+                };
                 if (email === "") {
-                    $('.error.newsletter').text('Email is required');
+                    $('.error.newsletter').text(localeMessages.enterYourEmail);
                     $('.error.newsletter').show();
                     return false;
                 } else if (!emailPattern.test(email)) {
-                    $('.error.newsletter').text('Invalid email format');
+                    $('.error.newsletter').text(localeMessages.validYourEmail);
                     $('.error.newsletter').show();
                     return false;
                 } else {
