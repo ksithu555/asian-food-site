@@ -116,4 +116,6 @@ return [
     'no_shop_available' => 'ショップはありません。',
     'since' => '開始日',
     'review' => 'レビュー',
+    'address' => '住所',
+    'addresses' => '住所',
 ];

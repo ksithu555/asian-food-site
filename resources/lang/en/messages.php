@@ -116,4 +116,6 @@ return [
     'no_shop_available' => 'No shop available.',
     'since' => 'Since',
     'review' => 'Review',
+    'address' => 'Address',
+    'addresses' => 'Addresses',
 ];
