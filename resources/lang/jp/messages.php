@@ -133,5 +133,8 @@ return [
     'enter_phone_error_message' => '電話番号を入力してください',
     'valid_phone_error_message' => '有効な電話番号を入力してください',
     'enter_message_error_message' => 'メッセージを入力してください',
-    'your_message_has_been_sent_successfully' => 'メッセージが送信されました'
+    'your_message_has_been_sent_successfully' => 'メッセージが送信されました',
+    'blog_list' => 'ブログリスト',
+    'read_more' => 'もっと読む',
+    'recent_posts' => '最近の投稿'
 ];

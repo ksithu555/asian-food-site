@@ -134,4 +134,7 @@ return [
     'valid_phone_error_message' => 'Please enter a valid phone number.',
     'enter_message_error_message' => 'Please enter your message.',
     'your_message_has_been_sent_successfully' => 'Your message has been sent successfully.',
+    'blog_list' => 'Blog List',
+    'read_more' => 'Read More',
+    'recent_posts' => 'Recent Posts'
 ];
