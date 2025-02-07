@@ -88,7 +88,7 @@
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="delivery-detail"
-                                    type="button" style="font-size: 14px; text-align: center;" href="{{route ('user_deivery_status')}}"><i data-feather="box"></i>
+                                    type="button" style="font-size: 14px; text-align: center;" href="{{route ('user_delivery_status')}}"><i data-feather="box"></i>
                                     {{ __('messages.delivery_status') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">

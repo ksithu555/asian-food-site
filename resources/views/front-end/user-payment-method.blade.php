@@ -87,7 +87,7 @@
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="delivery-detail" 
-                                    type="button" style="font-size: 14px; text-align: center;" href="{{route ('user_deivery_status')}}"><i data-feather="box"></i>
+                                    type="button" style="font-size: 14px; text-align: center;" href="{{route ('user_delivery_status')}}"><i data-feather="box"></i>
                                     Delivery Status</a>
                             </li>
                             <li class="nav-item" role="presentation">
@@ -438,5 +438,41 @@
         $('#removeCard').modal('show');
         // Update the form action URL dynamically with the selected address id
         $('#deleteForm').attr('action', '/remove-cards/' + id);
+    }
+</script>
+
+<script>
+    function uploadUserProfile() {
+        // Get the selected file
+        const fileInput = document.getElementById('user_profile_upload_input');
+        const file = fileInput.files[0];
+        
+        // Create a FormData object and append the file to it
+        const formData = new FormData();
+        formData.append('user_profile', file);
+        
+        // Send an AJAX request to the user_profile_upload route
+        $.ajax({
+            url: '/user-profile-upload',
+            type: 'POST',
+            data: formData,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                // Handle the response data
+                if (data.success) {
+                    // If upload successful, update the src attribute of the image tag
+                    console.log(data.file_url);
+                    $('#uploaded_image').attr('src', data.file_url);
+                } else {
+                    // If upload failed, display an error message
+                    console.error('Upload failed:', data.error);
+                }
+            },
+            error: function(xhr, status, error) {
+                // Handle errors
+                console.error('Error:', error);
+            }
+        });
     }
 </script>

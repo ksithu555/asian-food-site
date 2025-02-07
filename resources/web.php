@@ -42,7 +42,7 @@ Route::get('/user-orders', [UserController::class, 'showOrders'])->name('user_or
 Route::get('/user-order-details', [UserController::class, 'showOrderDetails'])->name('user_order_details');
 Route::get('/user-order-tracking', function () {return view('front-end.user-order-tracking');})->name('front-end.user-order-tracking');
 
-Route::get('/user/delivery', [UserController::class, 'showDelistatus'])->name('user_deivery_status');
+Route::get('/user/delivery', [UserController::class, 'showDelistatus'])->name('user_delivery_status');
 
 Route::get('/user/addresses', [UserController::class, 'showAddresses'])->name('user_addresses');
 Route::post('/user/addresses', [UserController::class, 'createNewaddress'])->name('add_newaddress');

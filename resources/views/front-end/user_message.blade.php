@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Message</h2>
+                        <h2>{{ __('messages.message') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -19,7 +19,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Message</li>
+                                <li class="breadcrumb-item active">{{ __('messages.message') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -80,33 +80,30 @@
                                 <a class="nav-link" id="pills-dashboard-tab" type="button"
                                     style="font-size: 14px; text-align: center;"
                                     href="{{ route('user_dashboard') }}"><i data-feather="home"></i>
-                                    DashBoard</a>
+                                    {{ __('messages.dashboard') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-order-tab" style="font-size: 14px; text-align: center;"
-                                    href="{{ route('user_order') }}"><i data-feather="shopping-bag"></i>Orders</a>
+                                    href="{{ route('user_order') }}"><i data-feather="shopping-bag"></i>
+                                    {{ __('messages.orders') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="delivery-detail" type="button"
                                     style="font-size: 14px; text-align: center;"
-                                    href="{{ route('user_deivery_status') }}"><i data-feather="box"></i>
-                                    Delivery Status</a>
+                                    href="{{ route('user_delivery_status') }}"><i data-feather="box"></i>
+                                    {{ __('messages.delivery_status') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-address-tab" type="button" role="tab"
                                     style="font-size: 14px; text-align: center;"
-                                    href="{{ route('user_addresses') }}"><i data-feather="map-pin"></i>Addresses</a>
+                                    href="{{ route('user_addresses') }}"><i data-feather="map-pin"></i>
+                                    {{ __('messages.addresses') }}</a>
                             </li>
-                            {{-- <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="pills-card-tab"
-                                    type="button" role="tab" style="font-size: 14px; text-align: center;" href="{{route ('user_cards')}}"><i
-                                        data-feather="credit-card"></i>Payment Methods</a>
-                            </li> --}}
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-profile-tab" type="button" role="tab"
                                     style="font-size: 14px; text-align: center;" href="{{ route('user_profile') }}"><i
                                         data-feather="user"></i>
-                                    Profile</a>
+                                    {{ __('messages.profile') }}</a>
                             </li>
                             @php
                                 $buyer = DB::table('buyers')
@@ -120,7 +117,7 @@
                                 <a class="nav-link active" id="pills-profile-tab" type="button" role="tab"
                                     style="font-size: 14px; text-align: center; display: flex; align-items: center;"
                                     href="{{ route('user_message') }}"><i data-feather="mail"></i>
-                                    Message
+                                    {{ __('messages.message') }}
                                     <span id="notification-badge" class="badge rounded-pill badge-theme"
                                         style="color: #ff6b6b; font-size: 12px; margin-left: auto;">
                                         <b></b>
@@ -136,14 +133,14 @@
                 <!-- Show Profile Start -->
                 <div class="col-xxl-9 col-lg-8">
                     <button class="btn left-dashboard-show btn-animation btn-md fw-bold d-block mb-4 d-lg-none">
-                        My Menu</button>
+                        {{ __('messages.my_menu') }}</button>
                     <div class="dashboard-right-sidebar">
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel">
                                 <div class="dashboard-profile">
                                     <div class="title title-flex">
                                         <div>
-                                            <h2>Message</h2>
+                                            <h2>{{ __('messages.message') }}</h2>
                                             <span class="title-leaf">
                                                 <svg class="icon-width bg-gray">
                                                     <use
@@ -167,7 +164,7 @@
                                                         data-bs-target="#removeNotiAll"
                                                         style="color: var(--theme-color); text-decoration: none; display: flex; align-items: center;">
                                                         <i class="ri-delete-bin-line" style="margin-right: 5px;"></i>
-                                                        Clear All
+                                                        {{ __('messages.clear_all') }}
                                                     </a>
                                                 </button>
                                                 <!-- Remove Noti Modal Start -->
@@ -177,7 +174,7 @@
                                                         <div class="modal-content">
                                                             <div class="modal-header d-block text-center">
                                                                 <h5 class="modal-title w-100"
-                                                                    id="exampleModalLabel22">Are You Sure?</h5>
+                                                                    id="exampleModalLabel22">{{ __('messages.are_you_sure_to_remove') }}</h5>
                                                                 <button type="button" class="btn-close"
                                                                     data-bs-dismiss="modal">
                                                                     <i class="fa-solid fa-xmark"></i>
@@ -185,7 +182,7 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <div class="remove-box">
-                                                                    <p>This will delete all of your messages.</p>
+                                                                    <p>{{ __('messages.this_will_delete_all_of_your_messages') }}</p>
                                                                 </div>
                                                             </div>
                                                             <div class="modal-footer">
@@ -194,11 +191,11 @@
                                                                     method="POST">
                                                                     @csrf
                                                                     <button type="submit"
-                                                                        class="btn theme-bg-color btn-md fw-bold text-light">Yes</button>
+                                                                        class="btn theme-bg-color btn-md fw-bold text-light">{{ __('messages.btn_yes') }}</button>
                                                                 </form>
                                                                 <button type="button" class="btn btn-md fw-bold"
                                                                     data-bs-dismiss="modal"
-                                                                    style="background-color: #ff6b6b;border-color: #ff6b6b;">No</button>
+                                                                    style="background-color: #ff6b6b;border-color: #ff6b6b;">{{ __('messages.btn_no') }}</button>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -207,145 +204,120 @@
                                             </div>
                                         @else
                                             <div class="col-md-12 text-center">
-                                                <h3>There is no message in your message box!</h3>
+                                                <h3>{{ __('messages.there_is_no_message_in_your_message_box') }}</h3>
                                             </div>
                                         @endif
                                     </div>
 
-                                    @foreach ($userNotis as $key => $userNoti)
-                                        <div class="row">
-                                            <div class="profile-detail dashboard-bg-box" style="margin-bottom: 5px;">
-                                                <div class="profile-name-detail">
-                                                    <div class="col-md-12">
-                                                        <div class="row">
-                                                            <div class="col-md-10">
-                                                                @if ($userNoti->title == 'Cash Cancel')
-                                                                    <p><strong>You order has been Cancelled.</strong>
-                                                                    </p>
-                                                                @else
-                                                                    <p><strong>Your order has been
-                                                                            {{ $userNoti->title == 'Cancel' ? 'Cancelled' : $userNoti->title }}.</strong>
-                                                                    </p>
+                                    @foreach($userNotis as $key => $userNoti)
+                                    <div class="row">
+                                        <div class="profile-detail dashboard-bg-box" style="margin-bottom: 5px;">
+                                            <div class="profile-name-detail">
+                                                <div class="col-md-12">
+                                                    <div class="row">
+                                                        <div class="col-md-10">
+                                                            @if ($userNoti->title == 'Cash Cancel')
+                                                                <p><strong>{{ __('messages.order_cancelled') }}</strong></p>
+                                                            @else
+                                                                <p><strong>{{ __('messages.order_status', [
+                                                                    'status' => $userNoti->title == 'Cancel' ? __('messages.cancelled_message') : 
+                                                                               ($userNoti->title == 'Delivered' ? __('messages.delivered_message') : 
+                                                                               ($userNoti->title == 'Confirmed' ? __('messages.confirmed_message') : $userNoti->title))
+                                                                ]) }}</strong></p>
+                                                            @endif
+                                                        </div>
+                                                        <div class="col-md-2 text-right" style="display: flex; align-items: center; justify-content: flex-end; margin-left: auto;">
+                                                            {{ date('Y/m/d H:i', strtotime($userNoti->created_at)) }}
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="col-md-10">
+                                                            <div class="row">
+                                                                <div class="col-md-1">
+                                                                    <img src="{{ asset('upload/product_thambnail/'.$userNoti->orderDetail->product->product_thambnail) }}"
+                                                                    class="img-fluid blur-up lazyload" alt="" style="width: 40px;height: 40px;">
+                                                                </div>
+                                                                <div class="col-md-11">
+                                                                    <div class="row">
+                                                                        <h4>{{ $userNoti->orderDetail->product->product_name }}</h4>
+                                                                    </div>
+                                                                    <div class="row">
+                                                                        <p>{{ $userNoti->orderDetail->qty }} {{ $userNoti->orderDetail->qty == 1 ? __('messages.item') : __('messages.items') }}</p>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                @if($userNoti->title == 'Confirmed')
+                                                                    <span>
+                                                                        {{ __('messages.order_confirmed', [
+                                                                            'shop_name' => $userNoti->orderDetail->seller->shop_name,
+                                                                            'expected_from' => date('Y/m/d', strtotime($userNoti->orderDetail->expected_from)),
+                                                                            'expected_to' => date('Y/m/d', strtotime($userNoti->orderDetail->expected_to))
+                                                                        ]) }}
+                                                                    </span>
+                                                                @elseif($userNoti->title == 'Delivered')
+                                                                    <span>
+                                                                        {{ __('messages.order_delivered', [
+                                                                            'shop_name' => $userNoti->orderDetail->seller->shop_name,
+                                                                            'delivered_date' => date('Y/m/d H:i', strtotime($userNoti->orderDetail->delivered_date))
+                                                                        ]) }}
+                                                                        {{ __('messages.contact_us_if_not_received') }}
+                                                                    </span>
+                                                                @elseif($userNoti->title == 'Cancel')
+                                                                    <span>
+                                                                        {{ __('messages.order_cancelled_by_seller', [
+                                                                            'shop_name' => $userNoti->orderDetail->seller->shop_name,
+                                                                            'cancelled_reason' => $userNoti->orderDetail->cancelled_reason
+                                                                        ]) }}
+                                                                    </span>
+                                                                @elseif($userNoti->title == 'Cash Cancel')
+                                                                    <span>
+                                                                        {{ __('messages.order_cancelled_no_payment', [
+                                                                            'cancelled_reason' => $userNoti->orderDetail->cancelled_reason
+                                                                        ]) }}
+                                                                    </span>
                                                                 @endif
                                                             </div>
-                                                            <div class="col-md-2 text-right"
-                                                                style="display: flex; align-items: center; justify-content: flex-end; margin-left: auto;">
-                                                                {{ date('Y/m/d H:i', strtotime($userNoti->created_at)) }}
+                                                        </div>
+                                                        <div class="col-md-2 text-right" style="display: flex; align-items: center; justify-content: space-between; margin-left: auto;">
+                                                            <a href="javascript:void(0)" data-bs-toggle="modal" 
+                                                            data-bs-target="#removeNoti{{ $userNoti->id }}">
+                                                                {{-- <i class="ri-delete-bin-line"></i> --}}
+                                                                <i data-feather="trash-2" style="width: 16px; height: 16px;"></i>
+                                                            </a>
+                                                        </div>
+                                                        <!-- Remove Noti Modal Start -->
+                                                        <div class="modal fade theme-modal remove-profile" id="removeNoti{{ $userNoti->id }}" tabindex="-1" aria-hidden="true">
+                                                            <div class="modal-dialog modal-dialog-centered">
+                                                                <div class="modal-content">
+                                                                    <div class="modal-header d-block text-center">
+                                                                        <h5 class="modal-title w-100" id="exampleModalLabel22">{{ __('messages.are_you_sure_to_remove') }}</h5>
+                                                                        <button type="button" class="btn-close" data-bs-dismiss="modal">
+                                                                            <i class="fa-solid fa-xmark"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                    <div class="modal-body">
+                                                                        <div class="remove-box">
+                                                                            <p>{{ __('messages.remove_message_from_message_box') }}</p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="modal-footer">
+                                                                        <form action="{{ route('remove_message', ['id' => $userNoti->id]) }}" method="POST">
+                                                                            @csrf
+                                                                            <button type="submit" class="btn theme-bg-color btn-md fw-bold text-light">{{ __('messages.btn_yes') }}</button>
+                                                                        </form>
+                                                                        <button type="button" class="btn btn-md fw-bold" data-bs-dismiss="modal"
+                                                                        style="background-color: #ff6b6b;border-color: #ff6b6b;">{{ __('messages.btn_no') }}</button>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                        <div class="row">
-                                                            <div class="col-md-10">
-                                                                <div class="row">
-                                                                    <div class="col-md-1">
-                                                                        <img src="{{ asset('upload/product_thambnail/' . $userNoti->orderDetail->product->product_thambnail) }}"
-                                                                            class="img-fluid blur-up lazyload"
-                                                                            alt=""
-                                                                            style="width: 40px;height: 40px;">
-                                                                    </div>
-                                                                    <div class="col-md-11">
-                                                                        <div class="row">
-                                                                            <h4>{{ $userNoti->orderDetail->product->product_name }}
-                                                                            </h4>
-                                                                        </div>
-                                                                        <div class="row">
-                                                                            <p>{{ $userNoti->orderDetail->qty }}
-                                                                                {{ $userNoti->orderDetail->qty == 1 ? 'item' : 'items' }}
-                                                                            </p>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                                <div class="row">
-                                                                    @if ($userNoti->title == 'Confirmed')
-                                                                        <span>
-                                                                            Your order has been {{ $userNoti->title }}
-                                                                            by
-                                                                            {{ $userNoti->orderDetail->seller->shop_name }}.
-                                                                            It is
-                                                                            expected to be delivered between
-                                                                            {{ date('Y/m/d', strtotime($userNoti->orderDetail->expected_from)) }}
-                                                                            and
-                                                                            {{ date('Y/m/d', strtotime($userNoti->orderDetail->expected_to)) }}.
-                                                                        </span>
-                                                                    @elseif($userNoti->title == 'Delivered')
-                                                                        <span>
-                                                                            Your order has been {{ $userNoti->title }}
-                                                                            by
-                                                                            {{ $userNoti->orderDetail->seller->shop_name }}
-                                                                            at
-                                                                            {{ date('Y/m/d H:i', strtotime($userNoti->orderDetail->delivered_date)) }}.
-                                                                            If you have not received it,
-                                                                            please contact us.
-                                                                        </span>
-                                                                    @elseif($userNoti->title == 'Cancel')
-                                                                        <span>
-                                                                            Your order has been Cancelled by
-                                                                            {{ $userNoti->orderDetail->seller->shop_name }}.
-                                                                            We will notify the refund process soon.<br>
-                                                                            Cancelled Reason :
-                                                                            {{ $userNoti->orderDetail->cancelled_reason }}
-                                                                        </span>
-                                                                    @elseif($userNoti->title == 'Cash Cancel')
-                                                                        <span>
-                                                                            Your order has been Cancelled for no
-                                                                            transfer payment.<br>
-                                                                            Cancelled Reason :
-                                                                            {{ $userNoti->orderDetail->cancelled_reason }}
-                                                                        </span>
-                                                                    @endif
-                                                                </div>
-                                                            </div>
-                                                            <div class="col-md-2 text-right"
-                                                                style="display: flex; align-items: center; justify-content: space-between; margin-left: auto;">
-                                                                <a href="javascript:void(0)" data-bs-toggle="modal"
-                                                                    data-bs-target="#removeNoti{{ $userNoti->id }}">
-                                                                    {{-- <i class="ri-delete-bin-line"></i> --}}
-                                                                    <i data-feather="trash-2"
-                                                                        style="width: 16px; height: 16px;"></i>
-                                                                </a>
-                                                            </div>
-                                                            <!-- Remove Noti Modal Start -->
-                                                            <div class="modal fade theme-modal remove-profile"
-                                                                id="removeNoti{{ $userNoti->id }}" tabindex="-1"
-                                                                aria-hidden="true">
-                                                                <div class="modal-dialog modal-dialog-centered">
-                                                                    <div class="modal-content">
-                                                                        <div class="modal-header d-block text-center">
-                                                                            <h5 class="modal-title w-100"
-                                                                                id="exampleModalLabel22">Are You Sure?
-                                                                            </h5>
-                                                                            <button type="button" class="btn-close"
-                                                                                data-bs-dismiss="modal">
-                                                                                <i class="fa-solid fa-xmark"></i>
-                                                                            </button>
-                                                                        </div>
-                                                                        <div class="modal-body">
-                                                                            <div class="remove-box">
-                                                                                <p>You will not see this message no more
-                                                                                    in your message box.</p>
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="modal-footer">
-                                                                            <form
-                                                                                action="{{ route('remove_message', ['id' => $userNoti->id]) }}"
-                                                                                method="POST">
-                                                                                @csrf
-                                                                                <button type="submit"
-                                                                                    class="btn theme-bg-color btn-md fw-bold text-light">Yes</button>
-                                                                            </form>
-                                                                            <button type="button"
-                                                                                class="btn btn-md fw-bold"
-                                                                                data-bs-dismiss="modal"
-                                                                                style="background-color: #ff6b6b;border-color: #ff6b6b;">No</button>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                            <!-- Remove Noti Modal End -->
-                                                        </div>
+                                                        <!-- Remove Noti Modal End -->
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>                            
                                     @endforeach
                                 </div>
                             </div>
@@ -358,4 +330,39 @@
         </div>
     </section>
     <!-- User Dashboard Section End -->
+    <script>
+        function uploadUserProfile() {
+            // Get the selected file
+            const fileInput = document.getElementById('user_profile_upload_input');
+            const file = fileInput.files[0];
+            
+            // Create a FormData object and append the file to it
+            const formData = new FormData();
+            formData.append('user_profile', file);
+            
+            // Send an AJAX request to the user_profile_upload route
+            $.ajax({
+                url: '/user-profile-upload',
+                type: 'POST',
+                data: formData,
+                processData: false,
+                contentType: false,
+                success: function(data) {
+                    // Handle the response data
+                    if (data.success) {
+                        // If upload successful, update the src attribute of the image tag
+                        console.log(data.file_url);
+                        $('#uploaded_image').attr('src', data.file_url);
+                    } else {
+                        // If upload failed, display an error message
+                        console.error('Upload failed:', data.error);
+                    }
+                },
+                error: function(xhr, status, error) {
+                    // Handle errors
+                    console.error('Error:', error);
+                }
+            });
+        }
+    </script>
 </x-guest-layout>
