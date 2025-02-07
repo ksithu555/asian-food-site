@@ -244,12 +244,16 @@
                                                                                             <a type="button"
                                                                                                 class="btn btn-sm"
                                                                                                 style="background-color: #0da487; border:0.5px solid #0da487; margin-left:0.5em; color:white;"
-                                                                                                href="{{ route('order_detail_tracking', ['id' => $order->order_detail_id]) }}">Tracking</a>
+                                                                                                href="{{ route('order_detail_tracking', ['id' => $order->order_detail_id]) }}">
+                                                                                                {{ __('messages.tracking') }}
+                                                                                            </a>
                                                                                         @else
                                                                                             <button type="button"
                                                                                                 class="btn btn-sm"
                                                                                                 style="background-color: #ff6b6b; border:0.5px solid #0da487; margin-left:0.5em; color:white;"
-                                                                                                onclick="cancelReason({{ $order->order_detail_id }})">Cancelled</button>
+                                                                                                onclick="cancelReason({{ $order->order_detail_id }})">
+                                                                                                {{ __('messages.cancelled') }}
+                                                                                            </button>
                                                                                         @endif
                                                                                     @endif
                                                                                 </td>
@@ -267,7 +271,8 @@
                                                                                             class="modal-header d-block text-center">
                                                                                             <h5 class="modal-title w-100"
                                                                                                 id="exampleModalLabel{{ $order->order_detail_id }}">
-                                                                                                Cancelled Reason</h5>
+                                                                                                {{ __('messages.cancelled_reason') }}    
+                                                                                            </h5>
                                                                                             <button type="button"
                                                                                                 class="btn-close"
                                                                                                 data-bs-dismiss="modal">
@@ -289,7 +294,7 @@
                                                                     <tfoot>
                                                                         <tr class="table-order">
                                                                             <td colspan="4">
-                                                                                <h5>Subtotal :</h5>
+                                                                                <h5>{{ __('messages.sub_total') }} :</h5>
                                                                             </td>
                                                                             <td>
                                                                                 <h4>¥
@@ -300,7 +305,7 @@
 
                                                                         <tr class="table-order">
                                                                             <td colspan="4">
-                                                                                <h5>Shipping :</h5>
+                                                                                <h5>{{ __('messages.shipping') }} :</h5>
                                                                             </td>
                                                                             <td>
                                                                                 <h4>¥
@@ -311,7 +316,7 @@
 
                                                                         <tr class="table-order">
                                                                             <td colspan="4">
-                                                                                <h5>Coupon Discounted :</h5>
+                                                                                <h5>{{ __('messages.coupon_discounted') }} :</h5>
                                                                             </td>
                                                                             <td>
                                                                                 <h4>¥
@@ -322,8 +327,8 @@
 
                                                                         <tr class="table-order">
                                                                             <td colspan="4">
-                                                                                <h4 class="theme-color fw-bold">Total
-                                                                                    Price :</h4>
+                                                                                <h4 class="theme-color fw-bold">
+                                                                                    {{ __('messages.total_price') }} :</h4>
                                                                             </td>
                                                                             <td>
                                                                                 <h4 class="theme-color fw-bold">¥
@@ -339,13 +344,13 @@
                                                         <div class="col-xl-3">
                                                             <div class="order-success">
                                                                 <div class="row g-4">
-                                                                    <h3>Summery</h3>
+                                                                    <h3>{{ __('messages.summary') }}</h3>
                                                                     <ul class="order-details">
-                                                                        <li>Order Code: {{ $order->order_code }}</li>
-                                                                        <li>Order Date:
+                                                                        <li>{{ __('messages.order_code') }}: {{ $order->order_code }}</li>
+                                                                        <li>{{ __('messages.order_date') }}:
                                                                             {{ date('Y/m/d H:i', strtotime($order->created_at)) }}
                                                                         </li>
-                                                                        <li>Order Total: ¥
+                                                                        <li>{{ __('messages.order_total') }}: ¥
                                                                             {{ number_format($totalAmount, 0, '.', ',') }}
                                                                         </li>
                                                                     </ul>
@@ -367,7 +372,7 @@
                                                                         }
                                                                     @endphp
                                                                     <div class="payment-mode">
-                                                                        <h4>Shipping address</h4>
+                                                                        <h4>{{ __('messages.shipping_address') }}</h4>
                                                                         <ul class="order-details">
                                                                             <li>
                                                                                 <h5>{{ $order->order_details_name }}
@@ -384,7 +389,7 @@
                                                                     </div>
 
                                                                     <div class="payment-mode">
-                                                                        <h4>Payment method</h4>
+                                                                        <h4>{{ __('messages.payment_method') }}</h4>
                                                                         <p>{{ $order->payment_type }}</p>
                                                                     </div>
                                                                 </div>
