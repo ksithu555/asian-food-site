@@ -298,4 +298,5 @@ return [
     'order_cancelled_by_seller' => 'Your order has been cancelled by :shop_name. We will notify the refund process soon. Cancelled Reason: :cancelled_reason',
     'order_cancelled_no_payment' => 'Your order has been cancelled for no transfer payment. Cancelled Reason: :cancelled_reason',
     'remove_message_from_message_box' => 'Remove this message from your message box.',
+    'email_or_password_incorrect' => 'Email or password is incorrect!',
 ];

@@ -298,4 +298,5 @@ return [
     'order_cancelled_by_seller' => 'ご注文は :shop_name によってキャンセルされました。返金手続きについては後ほどお知らせします。キャンセル理由: :cancelled_reason',
     'order_cancelled_no_payment' => 'ご注文は振込がないためキャンセルされました。キャンセル理由: :cancelled_reason',
     'remove_message_from_message_box' => 'このメッセージをメッセージボックスから削除します。',
+    'email_or_password_incorrect' => 'メールアドレスまたはパスワードが正しくありません。',
 ];
