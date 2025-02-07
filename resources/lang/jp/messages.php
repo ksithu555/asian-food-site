@@ -253,7 +253,6 @@ return [
     'roomno' => '部屋番号',
     'roomno_placeholder' => 'ユニット、部屋番号',
     'choose_place' => '場所を選択',
-    'home' => '家',
     'office' => 'オフィス',
     'other' => 'その他',
     'are_you_sure_to_add' => '追加してもよろしいですか？',

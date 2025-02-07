@@ -253,7 +253,6 @@ return [
     'roomno' => 'Room No',
     'roomno_placeholder' => 'Unit, Room No',
     'choose_place' => 'Choose Place',
-    'home' => 'Home',
     'office' => 'Office',
     'other' => 'Other',
     'are_you_sure_to_add' => 'Are you sure?',
