@@ -1,0 +1,85 @@
+name: CI/CD Deployment
+
+# Trigger the workflow on push events to the main branch
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Check out the repository code
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # 2. (Optional) Build or test your project
+      - name: Build Project
+        run: |
+          echo "Building the project..."
+          # Uncomment and customize the following commands if needed:
+          # npm install
+          # npm run build
+
+      # 3. Deploy to the server via SSH
+      - name: Deploy to Server
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: 160.16.96.105
+          username: root
+          key: -----BEGIN OPENSSH PRIVATE KEY-----
+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
+-----END OPENSSH PRIVATE KEY-----
+          port: 22  # Omit this line if you're using the default port 22
+          script: |
+            cd /var/apps/ec-test.asia-hd.com  # Replace with your actual project path on the server
+            git pull origin main
+            # Optionally, add commands to restart your application, clear caches, etc.
