@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Orders</h2>
+                        <h2>{{ __('messages.orders') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -20,7 +20,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Orders</li>
+                                <li class="breadcrumb-item active">{{ __('messages.orders') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -77,32 +77,27 @@
                         <li class="nav-item" role="presentation">
                             <a class="nav-link" id="pills-dashboard-tab"
                                     type="button" style="font-size: 14px; text-align: center;" href="{{route ('user_dashboard')}}"><i data-feather="home"></i>
-                                    DashBoard</a>
+                                    {{ __('messages.dashboard') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link active" id="pills-order-tab" 
                                     style="font-size: 14px; text-align: center;" href="{{route ('user_order')}}"><i
-                                        data-feather="shopping-bag"></i>Orders</a>
+                                        data-feather="shopping-bag"></i>{{ __('messages.orders') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="delivery-detail" 
                                     type="button" style="font-size: 14px; text-align: center;" href="{{route ('user_deivery_status')}}"><i data-feather="box"></i>
-                                    Delivery Status</a>
+                                    {{ __('messages.delivery_status') }}</a>
                             </li>
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-address-tab"
                                     type="button" role="tab" style="font-size: 14px; text-align: center;" href="{{route ('user_addresses')}}"><i
-                                        data-feather="map-pin"></i>Addresses</a>
+                                        data-feather="map-pin"></i>{{ __('messages.addresses') }}</a>
                             </li>
-                            {{-- <li class="nav-item" role="presentation">
-                                <a class="nav-link" id="pills-card-tab"
-                                    type="button" role="tab" style="font-size: 14px; text-align: center;" href="{{route ('user_cards')}}"><i
-                                        data-feather="credit-card"></i>Payment Methods</a>
-                            </li> --}}
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-profile-tab"
                                     type="button" role="tab" style="font-size: 14px; text-align: center;" href="{{route ('user_profile')}}"><i data-feather="user"></i>
-                                    Profile</a>
+                                    {{ __('messages.profile') }}</a>
                             </li>
                             @php
                                 $buyer = DB::table('buyers')->where('user_id', $user->id)->first();
@@ -111,7 +106,7 @@
                             <li class="nav-item" role="presentation">
                                 <a class="nav-link" id="pills-profile-tab"
                                     type="button" role="tab" style="font-size: 14px; text-align: center; display: flex; align-items: center;" href="{{route ('user_message')}}"><i data-feather="mail"></i>
-                                    Message
+                                    {{ __('messages.message') }}
                                     <span id="notification-badge" class="badge rounded-pill badge-theme" style="color: #ff6b6b; font-size: 12px; margin-left: auto;">
                                         <b>{{ $noti > 0 ? 'new' : '' }}</b>
                                     </span>
@@ -121,17 +116,16 @@
                     </div>
                 </div>
                 <!-- User Dashboard Section End -->
-
                 
                 <div class="col-xxl-9 col-lg-8">
                     <button class="btn left-dashboard-show btn-animation btn-md fw-bold d-block mb-4 d-lg-none">
-                        My Menu</button>
+                        {{ __('messages.my_menu') }}</button>
                     <div class="dashboard-right-sidebar">
                         <div class="tab-content" id="pills-tabContent">
                             <div class="tab-pane fade show active" id="pills-dashboard" role="tabpanel">
                                 <div class="dashboard-order">
                                     <div class="title">
-                                        <h2>Orders</h2>
+                                        <h2>{{ __('messages.orders') }}</h2>
                                         <span class="title-leaf">
                                             <svg class="icon-width bg-gray">
                                                 <use xlink:href="{{ asset('frontend/assets/svg/leaf.svg#leaf') }}"></use>
@@ -139,18 +133,17 @@
                                         </span>
                                     </div>
 
-                        
                         <div class="table-responsive dashboard-bg-box">
                             <table class="table product-table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">No</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Order Code</th>
-                                        <th scope="col">Quantity</th>
-                                        <th scope="col">Amount(tax inc)</th>
-                                        <th scope="col">Payment Method</th>
-                                        <th scope="col">Option</th>
+                                        <th scope="col">{{ __('messages.no') }}</th>
+                                        <th scope="col">{{ __('messages.date') }}</th>
+                                        <th scope="col">{{ __('messages.order_code') }}</th>
+                                        <th scope="col">{{ __('messages.quantity') }}</th>
+                                        <th scope="col">{{ __('messages.amount_tax_inc') }}</th>
+                                        <th scope="col">{{ __('messages.payment_method') }}</th>
+                                        <th scope="col">{{ __('messages.option') }}</th>
                                     </tr>
                                  </thead>
                                  <tbody>
@@ -178,7 +171,7 @@
                                             <td>
                                                 <h6>{{ $item->payment_type }}</h6>
                                                 @if ($item->payment_approved == 0)
-                                                <p style="color:red; font-size:12px;">(transfer not yet!)</p>
+                                                <p style="color:red; font-size:12px;">{{ __('messages.transfer_not_yet') }}</p>
                                                 @endif
                                             </td>
 
@@ -191,7 +184,7 @@
                                                     </li>
                                                 </ul>
                                             </td>
-                                    </tr> 
+                                        </tr> 
                                     @endforeach 
                                 </tbody>
                                 </table>
@@ -211,63 +204,3 @@
     </section>
     <!-- User Dashboard Section End -->
 </x-guest-layout>
-
-    <!-- Bg overlay Start -->
-    <div class="bg-overlay"></div>
-    <!-- Bg overlay End -->
-
-    <!-- Add address modal box start -->
-    <div class="modal fade theme-modal" id="add-address" tabindex="-1">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Add a new address</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="form-floating mb-4 theme-form-floating">
-                            <input type="text" class="form-control" id="fname" placeholder="Enter First Name">
-                            <label for="fname">First Name</label>
-                        </div>
-                    </form>
-
-                    <form>
-                        <div class="form-floating mb-4 theme-form-floating">
-                            <input type="text" class="form-control" id="lname" placeholder="Enter Last Name">
-                            <label for="lname">Last Name</label>
-                        </div>
-                    </form>
-
-                    <form>
-                        <div class="form-floating mb-4 theme-form-floating">
-                            <input type="email" class="form-control" id="email" placeholder="Enter Email Address">
-                            <label for="email">Email Address</label>
-                        </div>
-                    </form>
-
-                    <form>
-                        <div class="form-floating mb-4 theme-form-floating">
-                            <textarea class="form-control" placeholder="Leave a comment here" id="address"
-                                style="height: 100px"></textarea>
-                            <label for="address">Enter Address</label>
-                        </div>
-                    </form>
-
-                    <form>
-                        <div class="form-floating mb-4 theme-form-floating">
-                            <input type="email" class="form-control" id="pin" placeholder="Enter Pin Code">
-                            <label for="pin">Pin Code</label>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn theme-bg-color btn-md text-white" data-bs-dismiss="modal">Save</button>
-                    <button type="button" class="btn btn-secondary btn-md" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Add address modal box end -->

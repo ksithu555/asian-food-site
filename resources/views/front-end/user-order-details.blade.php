@@ -7,7 +7,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="breadcrumb-contain">
-                            <h2>Orders</h2>
+                            <h2>{{ __('messages.orders') }}</h2>
                             <nav>
                                 <ol class="breadcrumb mb-0">
                                     <li class="breadcrumb-item">
@@ -15,7 +15,7 @@
                                             <i class="fa-solid fa-house"></i>
                                         </a>
                                     </li>
-                                    <li class="breadcrumb-item active">Orders</li>
+                                    <li class="breadcrumb-item active">{{ __('messages.orders') }}</li>
                                 </ol>
                             </nav>
                         </div>
@@ -78,29 +78,31 @@
                                     <a class="nav-link" id="pills-dashboard-tab" data-bs-toggle="pill"
                                         data-bs-target="#pills-dashboard" type="button"
                                         style="font-size: 14px; text-align: center;"><i data-feather="home"></i>
-                                        DashBoard</a>
+                                        {{ __('messages.dashboard') }}</a>
                                 </li>
                                 <li class="nav-item active" role="presentation">
                                     <a class="nav-link active" id="pills-order-tab"
                                         style="font-size: 14px; text-align: center;" href="{{ route('user_order') }}"><i
-                                            data-feather="shopping-bag"></i>Orders</a>
+                                            data-feather="shopping-bag"></i>{{ __('messages.orders') }}</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="delivery-detail" type="button"
                                         style="font-size: 14px; text-align: center;"
                                         href="{{ route('user_deivery_status') }}"><i data-feather="box"></i>
-                                        Delivery Status</a>
+                                        {{ __('messages.delivery_status') }}</a>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="pills-address-tab" type="button" role="tab"
                                         style="font-size: 14px; text-align: center;"
-                                        href="{{ route('user_addresses') }}"><i data-feather="map-pin"></i>Addresses</a>
+                                        href="{{ route('user_addresses') }}"><i data-feather="map-pin"></i>
+                                        {{ __('messages.addresses') }}
+                                    </a>
                                 </li>
                                 <li class="nav-item" role="presentation">
                                     <a class="nav-link" id="pills-profile-tab" type="button" role="tab"
                                         style="font-size: 14px; text-align: center;"
                                         href="{{ route('user_profile') }}"><i data-feather="user"></i>
-                                        Profile</a>
+                                        {{ __('messages.profile') }}</a>
                                 </li>
                                 @php
                                     $buyer = DB::table('buyers')
@@ -115,7 +117,7 @@
                                     <a class="nav-link" id="pills-profile-tab" type="button" role="tab"
                                         style="font-size: 14px; text-align: center; display: flex; align-items: center;"
                                         href="{{ route('user_message') }}"><i data-feather="mail"></i>
-                                        Message
+                                        {{ __('messages.message') }}
                                         <span id="notification-badge" class="badge rounded-pill badge-theme"
                                             style="color: #ff6b6b; font-size: 12px; margin-left: auto;">
                                             <b>{{ $noti > 0 ? 'new' : '' }}</b>
@@ -157,7 +159,7 @@
                                                         @endphp
                                                     @endif
                                                     <div>
-                                                        <h5>Order Code <span
+                                                        <h5>{{ __('messages.order_code') }} <span
                                                                 style="color: var(--theme-color);">{{ $orders->order_code }}</span>
                                                         </h5>
                                                     </div>
@@ -165,21 +167,19 @@
                                                         <h5 style="color: var(--theme-color);">
                                                             {{ date('Y/m/d', strtotime($orders->order_created_at)) }}
                                                         </h5>
-                                                        <h5>Items: <span
+                                                        <h5>{{ __('messages.items') }}: <span
                                                                 style="color: var(--theme-color);">{{ $orders->total_qty }}</span>
                                                         </h5>
-                                                        <h5>Total: <span style="color: var(--theme-color);">¥
+                                                        <h5>{{ __('messages.total') }}: <span style="color: var(--theme-color);">¥
                                                                 {{ number_format($orders->total_amount, 0, '.', ',') }}</span>
                                                         </h5>
                                                     </div>
                                                 </div>
                                                 <br>
                                                 @if ($orderDetails->first()->payment_approved == 0)
-                                                    <p style="color:red; font-size:12px;">* Please make the transfer
-                                                        for this order.</p>
+                                                <p style="color:red; font-size:12px;">* {{ __('messages.please_make_transfer') }}</p>
                                                 @elseif ($orderDetails->first()->payment_approved == 2)
-                                                    <p style="color:red; font-size:12px;">* Your order have been
-                                                        cancelled for no transfer payment.</p>
+                                                <p style="color:red; font-size:12px;">* {{ __('messages.order_cancelled_no_transfer') }}</p>
                                                 @endif
                                                 <div class="bg-inner cart-section order-details-table">
                                                     <div class="row g-4">
@@ -188,13 +188,13 @@
                                                                 <table class="table cart-table table-borderless">
                                                                     <thead>
                                                                         <tr>
-                                                                            <th>No</th>
-                                                                            <th>Product Name</th>
-                                                                            <th>Shop</th>
-                                                                            <th>Quantity</th>
-                                                                            <th>Price (tax inc)</th>
-                                                                            <th>Size</th>
-                                                                            <th>Color</th>
+                                                                            <th>{{ __('messages.no') }}</th>
+                                                                            <th>{{ __('messages.product_name') }}</th>
+                                                                            <th>{{ __('messages.shop') }}</th>
+                                                                            <th>{{ __('messages.quantity') }}</th>
+                                                                            <th>{{ __('messages.price_tax_inc') }}</th>
+                                                                            <th>{{ __('messages.size') }}</th>
+                                                                            <th>{{ __('messages.color') }}</th>
                                                                             <th></th>
                                                                         </tr>
                                                                     </thead>
