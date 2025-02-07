@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'welcome' => 'アジア食彩館ECサイトへようこそ',
+    'welcome' => 'Testing the CICD',
     'top_bar_address' => '東京都豊島区池袋4-27-5',
     'login' => 'ログイン',
     'buyer_register' => '購入者登録',
