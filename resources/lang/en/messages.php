@@ -379,4 +379,5 @@ return [
     'enter_transfer_date_error_message' => 'Please enter your transfer date.',
     'transfer_date_can_not_be_past' => 'Transfer date can not be in the past.',
     'transfer_date_can_not_exceed_7_days' => 'Transfer date can not exceed 7 days.',
+    'product_name' => 'Product Name',
 ];

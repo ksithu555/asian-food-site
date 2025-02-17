@@ -229,8 +229,8 @@ return [
     'processing' => '処理中',
     'picked' => 'ピックアップ済み',
     'shipped' => '発送済み',
-    'order_placed' => '注文が確定しました。',
-    'confirmed_the_order' => '注文が確認されました。',
+    'order_placed' => '注文が確定しました',
+    'confirmed_the_order' => '注文が確認されました',
     'processing_to_ship' => '発送準備中',
     'picked_for_shipping' => '発送のためにピックアップされました',
     'shipping_the_product' => '商品を発送中',
@@ -379,4 +379,5 @@ return [
     'enter_transfer_date_error_message' => '振込日を入力してください',
     'transfer_date_can_not_be_past' => '振込日は過去の日付にすることはできません',
     'transfer_date_can_not_exceed_7_days' => '振込日は7日を超えることはできません',
+    'product_name' => '商品名',
 ];
