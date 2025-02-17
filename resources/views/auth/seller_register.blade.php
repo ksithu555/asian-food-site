@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="breadcrumb-contain">
-                        <h2>Sign Up</h2>
+                        <h2>{{ __('messages.sign_up') }}</h2>
                         <nav>
                             <ol class="breadcrumb mb-0">
                                 <li class="breadcrumb-item">
@@ -13,7 +13,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">Sign Up</li>
+                                <li class="breadcrumb-item active">{{ __('messages.sign_up') }}</li>
                             </ol>
                         </nav>
                     </div>
@@ -28,7 +28,7 @@
                 <div class="col-lg-8 col-md-10 col-sm-12">
                     <div class="log-in-box">
                         <div class="log-in-title">
-                            <h3>Shop Information</h3>
+                            <h3>{{ __('messages.shop_information') }}</h3>
                         </div>
 
                         <div class="input-box">
@@ -36,8 +36,8 @@
                                 @csrf
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="text" id="shop_name" name="shop_name" class="form-control" placeholder="Shop Name" value="{{ old('shop_name') }}">
-                                        <label>Shop Name</label>
+                                        <input type="text" id="shop_name" name="shop_name" class="form-control" placeholder="{{ __('messages.shop_name') }}" value="{{ old('shop_name') }}">
+                                        <label>{{ __('messages.shop_name') }}</label>
                                         <span class="error" style="color:red" id="error-shop_name"></span>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
                                         <input type="date" id="shop_establish" name="shop_establish" class="form-control" value="{{ old('shop_establish') }}">
-                                        <label>Established Year</label>
+                                        <label>{{ __('messages.established_year') }}</label>
                                         <span class="error" style="color:red" id="error-shop_establish"></span>
                                     </div>
                                 </div>
@@ -53,38 +53,38 @@
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
                                         <input type="file" id="shop_logo" name="shop_logo" class="form-control" value="{{ old('shop_logo') }}">
-                                        <label>Shop Logo</label>
+                                        <label>{{ __('messages.shop_logo') }}</label>
                                         <span class="error" style="color:red" id="error-shop_logo"></span>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="number" id="phone" name="phone" class="form-control" placeholder="Phone" value="{{ old('phone') }}">
-                                        <label>Phone</label>
+                                        <input type="number" id="phone" name="phone" class="form-control" placeholder="{{ __('messages.phone') }}" value="{{ old('phone') }}">
+                                        <label>{{ __('messages.phone') }}</label>
                                         <span class="error" style="color:red" id="error-phone"></span>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="number" id="zip_code" name="zip_code" class="form-control" placeholder="Zip Code" value="{{ old('zip_code') }}">
-                                        <label>Zip Code</label>
+                                        <input type="number" id="zip_code" name="zip_code" class="form-control" placeholder="{{ __('messages.zip_code') }}" value="{{ old('zip_code') }}">
+                                        <label>{{ __('messages.zip_code') }}</label>
                                         <span class="error" style="color:red" id="error-zip_code"></span>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="text" name="url" class="form-control" placeholder="Shop Link" value="{{ old('url') }}">
-                                        <label>Shop Link</label>
+                                        <input type="text" name="url" class="form-control" placeholder="{{ __('messages.shop_link') }}" value="{{ old('url') }}">
+                                        <label>{{ __('messages.shop_link') }}</label>
                                     </div>
                                 </div>
 
                                 <div class="col-md-12">
                                     <div class="form-floating theme-form-floating">
                                         <select class="form-control" name="prefecture" value="{{ old('prefecture') }}">
-                                            <option>Choose Prefecture</option>
+                                            <option>{{ __('messages.choose_prefecture') }}</option>
                                             @foreach ($prefecture as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
                                             @endforeach
@@ -96,7 +96,7 @@
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
                                         <input type="text" id="city" name="city" class="form-control" placeholder="Narita-shi,Furugome" value="{{ old('city') }}">
-                                        <label>City, Ward, Town</label>
+                                        <label>{{ __('messages.city_placeholder') }}</label>
                                         <span class="error" style="color:red" id="error-city"></span>
                                     </div>
                                 </div>
@@ -104,15 +104,15 @@
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
                                         <input type="text" id="chome" name="chome" class="form-control" placeholder="1-2-3" value="{{ old('chome') }}">
-                                        <label>Chome, Banchi, Go</label>
+                                        <label>{{ __('messages.chome_placeholder') }}</label>
                                         <span class="error" style="color:red" id="error-chome"></span>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="text" id="building" name="building" class="form-control" placeholder="Example Building" value="{{ old('building') }}">
-                                        <label>Building / Apt / Company name</label>
+                                        <input type="text" id="building" name="building" class="form-control" placeholder="{{ __('messages.building_placeholder') }}" value="{{ old('building') }}">
+                                        <label>{{ __('messages.building_placeholder') }}</label>
                                         <span class="error" style="color:red" id="error-building"></span>
                                     </div>
                                 </div>
@@ -120,25 +120,25 @@
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
                                         <input type="text" id="room" name="room" class="form-control" placeholder="101" value="{{ old('room') }}">
-                                        <label>Unit / Room no.</label>
+                                        <label>{{ __('messages.roomno_placeholder') }}</label>
                                         <span class="error" style="color:red" id="error-room"></span>
                                     </div>
                                 </div>
 
-                                <h3>Bank Information</h3>
+                                <h3>{{ __('messages.bank_information') }}</h3>
 
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="text" id="bank_name" name="bank_name" class="form-control" placeholder="Bank Name" value="{{ old('bank_name') }}">
-                                        <label>Bank Name</label>
+                                        <input type="text" id="bank_name" name="bank_name" class="form-control" placeholder="{{ __('messages.bank_name') }}" value="{{ old('bank_name') }}">
+                                        <label>{{ __('messages.bank_name') }}</label>
                                         <span class="error" style="color:red" id="error-bank_name"></span>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="text" id="bank_branch" name="bank_branch" class="form-control" placeholder="Branch Name" value="{{ old('bank_branch') }}">
-                                        <label>Branch Name</label>
+                                        <input type="text" id="bank_branch" name="bank_branch" class="form-control" placeholder="{{ __('messages.branch_name') }}" value="{{ old('bank_branch') }}">
+                                        <label>{{ __('messages.branch_name') }}</label>
                                         <span class="error" style="color:red" id="error-bank_branch"></span>
                                     </div>
                                 </div>
@@ -146,10 +146,10 @@
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
                                         <select class="form-control" name="bank_acc_type">
-                                            <option value="">Choose Bank Account Type</option>
-                                            <option value="普通" {{ old('bank_acc_type') == '普通' ? 'selected' : '' }}>普通</option>
-                                            <option value="当座" {{ old('bank_acc_type') == '当座' ? 'selected' : '' }}>当座</option>
-                                            <option value="貯蓄" {{ old('bank_acc_type') == '貯蓄' ? 'selected' : '' }}>貯蓄</option>
+                                            <option value="">{{ __('messages.choose_bank_account_type') }}</option>
+                                            <option value="普通" {{ old('bank_acc_type') == '普通' ? 'selected' : '' }}>{{ __('messages.normal') }}</option>
+                                            <option value="当座" {{ old('bank_acc_type') == '当座' ? 'selected' : '' }}>{{ __('messages.current') }}</option>
+                                            <option value="貯蓄" {{ old('bank_acc_type') == '貯蓄' ? 'selected' : '' }}>{{ __('messages.savings') }}</option>
                                         </select>
                                         <span class="error" style="color:red" id="error-bank_acc_type"></span>
                                     </div>
@@ -157,34 +157,34 @@
 
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="text" id="bank_acc_no" name="bank_acc_no" class="form-control" placeholder="Bank Account Number" value="{{ old('bank_acc_no') }}">
-                                        <label>Bank Account Number</label>
+                                        <input type="text" id="bank_acc_no" name="bank_acc_no" class="form-control" placeholder="{{ __('messages.bank_account_number') }}" value="{{ old('bank_acc_no') }}">
+                                        <label>{{ __('messages.bank_account_number') }}</label>
                                         <span class="error" style="color:red" id="error-bank_acc_no"></span>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="text" id="bank_acc_name" name="bank_acc_name" class="form-control" placeholder="Bank Account Name" value="{{ old('bank_acc_name') }}">
-                                        <label>Bank Account Name</label>
+                                        <input type="text" id="bank_acc_name" name="bank_acc_name" class="form-control" placeholder="{{ __('messages.bank_account_name') }}" value="{{ old('bank_acc_name') }}">
+                                        <label>{{ __('messages.bank_account_name') }}</label>
                                         <span class="error" style="color:red" id="error-bank_acc_name"></span>
                                     </div>
                                 </div>
 
-                                <h3>User Information</h3>
+                                <h3>{{ __('messages.user_information') }}</h3>
 
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="text" id="user_name" name="user_name" class="form-control" placeholder="Name" value="{{ old('user_name') }}">
-                                        <label>Username</label>
+                                        <input type="text" id="user_name" name="user_name" class="form-control" placeholder="{{ __('messages.name') }}" value="{{ old('user_name') }}">
+                                        <label>{{ __('messages.name') }}</label>
                                         <span class="error" style="color:red" id="error-user_name"></span>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="text" id="email" name="email" class="form-control" placeholder="Email Address" value="{{ old('email') }}">
-                                        <label>Email Address</label>
+                                        <input type="text" id="email" name="email" class="form-control" placeholder="{{ __('messages.email') }}" value="{{ old('email') }}">
+                                        <label>{{ __('messages.email') }}</label>
                                         @if($errors->has('email'))
                                             <span class="error" style="color:red">{{ $errors->first('email') }}</span>
                                         @endif
@@ -194,16 +194,16 @@
 
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="password" id="password" name="password" class="form-control" placeholder="Password" value="{{ old('passwords') }}">
-                                        <label>Password</label>
+                                        <input type="password" id="password" name="password" class="form-control" placeholder="{{ __('messages.password') }}" value="{{ old('passwords') }}">
+                                        <label>{{ __('messages.password') }}</label>
                                         <span class="error" style="color:red" id="error-password"></span>
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-floating theme-form-floating">
-                                        <input type="password" name="confirmed" class="form-control" placeholder="Confirm Password" value="{{ old('confirmed') }}">
-                                        <label>Confirm Password</label>
+                                        <input type="password" name="confirmed" class="form-control" placeholder="{{ __('messages.confirm_password') }}" value="{{ old('confirmed') }}">
+                                        <label>{{ __('messages.confirm_password') }}</label>
                                         <span class="error" style="color:red" id="error-confirmed"></span>
                                     </div>
                                 </div>
@@ -212,8 +212,8 @@
                                     <div class="forgot-box">
                                         <div class="form-check ps-0 m-0 remember-box">
                                             <input class="checkbox_animated check-box" type="checkbox" id="flexCheckDefault">
-                                            <label class="form-check-label" for="flexCheckDefault">I agree with
-                                                <a href="{{ url('/seller-term-and-condition') }}"><span>Terms and Privacy</span></a>
+                                            <label class="form-check-label" for="flexCheckDefault">{{ __('messages.i_agree_with') }}
+                                                <a href="{{ url('/seller-term-and-condition') }}"><span>{{ __('messages.terms_and_privacy') }}</span></a>
                                             </label>
                                         </div>
                                     </div>
@@ -221,14 +221,14 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <button class="btn btn-animation theme-bg-color w-100" type="submit" onclick="validateUserForm()">Sign Up</button>
+                                    <button class="btn btn-animation theme-bg-color w-100" type="submit" onclick="validateUserForm()">{{ __('messages.sign_up') }}</button>
                                 </div>
                             </form>
                         </div>
 
                         <div class="sign-up-box">
-                            <h4>Already have an account?</h4>
-                            <a href="{{ route('login') }}">Log In</a>
+                            <h4>{{ __('messages.already_have_account') }}</h4>
+                            <a href="{{ route('login') }}">{{ __('messages.login') }}</a>
                         </div>
                     </div>
                 </div>
@@ -267,150 +267,150 @@
 
             if (!shop_name) {
                 isValid = false;
-                document.getElementById('error-shop_name').textContent = 'Please provide your shop name.';
+                document.getElementById('error-shop_name').textContent = '{{ __('messages.enter_shop_name_error_message')}}';
             } else if (shop_name.length > 255) {
                 isValid = false;
-                document.getElementById('error-shop_name').textContent = 'Your shop name must not exceed 255 characters.';
+                document.getElementById('error-shop_name').textContent = '{{ __('messages.valid_shop_name_error_message')}}';
             }
 
             if (!shop_establish) {
                 isValid = false;
-                document.getElementById('error-shop_establish').textContent = 'Please provide your shop established date.';
+                document.getElementById('error-shop_establish').textContent = '{{ __('messages.enter_shop_established_date_error_message')}}';
             }
 
             if (!shopLogoFile) {
                 isValid = false;
-                shopLogoError.textContent = 'Please provide your shop logo.';
+                shopLogoError.textContent = '{{ __('messages.enter_shop_logo_error_message') }}';
             } else if (shopLogoFile.size > 2 * 1024 * 1024) {
                 isValid = false;
-                shopLogoError.textContent = 'Your shop logo must not exceed 2MB.';
+                shopLogoError.textContent = '{{ __('messages.valid_shop_logo_error_message') }}';
             }
 
             if (!phone) {
                 isValid = false;
-                document.getElementById('error-phone').textContent = 'Please provide your shop phone number.';
+                document.getElementById('error-phone').textContent = '{{ __('messages.enter_shop_phone_error_message') }}';
             } else if (!/^\d+$/.test(phone)) {
                 isValid = false;
-                document.getElementById('error-phone').textContent = 'Please provide a valid phone number.(eg. 09077554361)';
+                document.getElementById('error-phone').textContent = '{{ __('messages.valid_shop_phone_error_message') }}';
             }
 
             if (!zip_code) {
                 isValid = false;
-                document.getElementById('error-zip_code').textContent = 'Please provide your zip code.';
+                document.getElementById('error-zip_code').textContent = '{{ __('messages.enter_zip_code_error_message') }}';
             } else if (zip_code.length !== 7 || !/^\d{7}$/.test(zip_code)) {
                 isValid = false;
-                document.getElementById('error-zip_code').textContent = 'Please provide a valid 7-digit zip code.';
+                document.getElementById('error-zip_code').textContent = '{{ __('messages.valid_zip_code_error_message') }}';
             }
 
-            if (!prefecture || prefecture === 'Choose Prefecture') {
+            if (!prefecture || prefecture === '{{ __('messages.choose_prefecture') }}') {
                 isValid = false;
-                document.getElementById('error-prefecture').textContent = 'Please select a valid prefecture.';
+                document.getElementById('error-prefecture').textContent = '{{ __('messages.select_valid_prefecture_error_message') }}'; // Updated to use translation
             }
 
             if (!city) {
                 isValid = false;
-                document.getElementById('error-city').textContent = 'Please provide your city.';
+                document.getElementById('error-city').textContent = '{{ __('messages.enter_city_error_message') }}'; // Updated to use translation
             } else if (city.length > 255) {
                 isValid = false;
-                document.getElementById('error-city').textContent = 'Your city must not exceed 255 characters.';
+                document.getElementById('error-city').textContent = '{{ __('messages.valid_city_length_error_message') }}'; // Updated to use translation
             }
 
             if (!chome) {
                 isValid = false;
-                document.getElementById('error-chome').textContent = 'Please provide your chome.';
+                document.getElementById('error-chome').textContent = '{{ __('messages.enter_chome_error_message') }}'; // Updated to use translation
             } else if (chome.length > 255) {
                 isValid = false;
-                document.getElementById('error-chome').textContent = 'Your chome must not exceed 255 characters.';
+                document.getElementById('error-chome').textContent = '{{ __('messages.valid_chome_length_error_message') }}'; // Updated to use translation
             }
 
             if (!building) {
                 isValid = false;
-                document.getElementById('error-building').textContent = 'Please provide your building.';
+                document.getElementById('error-building').textContent = '{{ __('messages.enter_building_error_message') }}'; // Updated to use translation
             } else if (building.length > 255) {
                 isValid = false;
-                document.getElementById('error-building').textContent = 'Your building must not exceed 255 characters.';
+                document.getElementById('error-building').textContent = '{{ __('messages.valid_building_length_error_message') }}'; // Updated to use translation
             }
 
             if (!room) {
                 isValid = false;
-                document.getElementById('error-room').textContent = 'Please provide your room number.';
+                document.getElementById('error-room').textContent = '{{ __('messages.enter_roomno_error_message') }}'; // Updated to use translation
             } else if (room.length > 255) {
                 isValid = false;
-                document.getElementById('error-room').textContent = 'Your room number must not exceed 255 characters.';
+                document.getElementById('error-room').textContent = '{{ __('messages.valid_roomno_length_error_message') }}'; // Updated to use translation
             }
 
             if (!bank_name) {
                 isValid = false;
-                document.getElementById('error-bank_name').textContent = 'Please provide your bank name.';
+                document.getElementById('error-bank_name').textContent = '{{ __('messages.enter_bank_name_error_message') }}'; // Updated to use translation
             } else if (bank_name.length > 255) {
                 isValid = false;
-                document.getElementById('error-bank_name').textContent = 'Your name must not exceed 255 characters.';
+                document.getElementById('error-bank_name').textContent = '{{ __('messages.valid_bank_name_length_error_message') }}'; // Updated to use translation
             }
 
             if (!bank_branch) {
                 isValid = false;
-                document.getElementById('error-bank_branch').textContent = 'Please provide your branch name.';
+                document.getElementById('error-bank_branch').textContent = '{{ __('messages.enter_bank_branch_error_message') }}'; // Updated to use translation
             } else if (bank_branch.length > 255) {
                 isValid = false;
-                document.getElementById('error-bank_branch').textContent = 'Your name must not exceed 255 characters.';
+                document.getElementById('error-bank_branch').textContent = '{{ __('messages.valid_bank_branch_length_error_message') }}'; // Updated to use translation
             }
 
-            if (!bank_acc_type || bank_acc_type === 'Choose bank account type') {
+            if (!bank_acc_type || bank_acc_type === '{{ __('messages.choose_bank_account_type') }}') {
                 isValid = false;
-                document.getElementById('error-bank_acc_type').textContent = 'Please select a valid bank account.';
+                document.getElementById('error-bank_acc_type').textContent = '{{ __('messages.choose_bank_account_type_error_message') }}'; // Updated to use translation
             }
 
             if (!bank_acc_name) {
                 isValid = false;
-                document.getElementById('error-bank_acc_name').textContent = 'Please provide your bank account name.';
+                document.getElementById('error-bank_acc_name').textContent = '{{ __('messages.enter_bank_account_name_error_message') }}'; // Updated to use translation
             } else if (bank_acc_name.length > 255) {
                 isValid = false;
-                document.getElementById('error-bank_acc_name').textContent = 'Your name must not exceed 255 characters.';
+                document.getElementById('error-bank_acc_name').textContent = '{{ __('messages.valid_bank_account_name_length_error_message') }}'; // Updated to use translation
             }
 
             if (!bank_acc_no) {
                 isValid = false;
-                document.getElementById('error-bank_acc_no').textContent = 'Please provide your bank account number.';
+                document.getElementById('error-bank_acc_no').textContent = '{{ __('messages.enter_bank_account_number_error_message') }}'; // Updated to use translation    
             } else if (!/^\d+$/.test(bank_acc_no)) {
                 isValid = false;
-                document.getElementById('error-bank_acc_no').textContent = 'Please provide a valid digit.';
+                document.getElementById('error-bank_acc_no').textContent = '{{ __('messages.valid_bank_account_number_error_message') }}'; // Updated to use translation
             }
 
             if (!user_name) {
                 isValid = false;
-                document.getElementById('error-user_name').textContent = 'Please provide your name.';
+                document.getElementById('error-user_name').textContent = '{{ __('messages.enter_name_error_message') }}'; // Updated to use translation
             } else if (user_name.length > 255) {
                 isValid = false;
-                document.getElementById('error-user_name').textContent = 'Your name must not exceed 255 characters.';
+                document.getElementById('error-user_name').textContent = '{{ __('messages.valid_name_error_message') }}'; // Updated to use translation
             }
 
             if (!email) {
                 isValid = false;
-                document.getElementById('error-email').textContent = 'Please provide your email.';
+                document.getElementById('error-email').textContent = '{{ __('messages.enter_email_error_message') }}'; // Updated to use translation
             } else if (!/\S+@\S+\.\S+/.test(email)) {
                 isValid = false;
-                document.getElementById('error-email').textContent = 'Please provide a valid email address.';
+                document.getElementById('error-email').textContent = '{{ __('messages.valid_email_error_message') }}'; // Updated to use translation
             }
 
             if (!password) {
                 isValid = false;
-                document.getElementById('error-password').textContent = 'Please provide your password.';
+                document.getElementById('error-password').textContent = '{{ __('messages.enter_password_error_message') }}'; // Updated to use translation
             } else if (password.length < 8) {
                 isValid = false;
-                document.getElementById('error-password').textContent = 'Your password must be at least 8 characters long.';
+                document.getElementById('error-password').textContent = '{{ __('messages.valid_password_length_error_message') }}'; // Updated to use translation
             }
 
             if (password && !confirmed) {
                 isValid = false;
-                document.getElementById('error-confirmed').textContent = 'Please confirm your password.';
+                document.getElementById('error-confirmed').textContent = '{{ __('messages.enter_confirm_password_error_message') }}'; // Updated to use translation
             } else if (password !== confirmed) {
                 isValid = false;
-                document.getElementById('error-confirmed').textContent = 'Passwords do not match.';
+                document.getElementById('error-confirmed').textContent = '{{ __('messages.passwords_do_not_match_error_message') }}'; // Updated to use translation
             }
 
             if (!checkbox.checked) {
                 isValid = false;
-                document.getElementById('error-flexCheckDefault').textContent = 'You must agree to the Terms and Privacy to sign up.';
+                document.getElementById('error-flexCheckDefault').textContent = '{{ __('messages.you_must_agree_terms') }}'; // Updated to use translation
             }
 
             if (isValid) {
