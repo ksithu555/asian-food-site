@@ -61,16 +61,16 @@
 </head>
 <body>
     <div class="container">
-        <h2>Order Confirmation</h2>
-        <p>Dear {{ $orderDetails->first()->buyer->name }},</p>
-        <p>Your order has been successfully placed. Here are the details:</p>
+        <h2>{{ __('messages.order_confirmation') }}</h2>
+        <p>{{ __('messages.dear', ['name' => $orderDetails->first()->buyer->name]) }},</p>
+        <p>{{ __('messages.your_order_has_been_successfully_placed_here_are_details') }}</p>
         <table>
             <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Shop</th>
-                    <th>Quantity</th>
-                    <th>Price(tax inc)</th>
+                    <th>{{ __('messages.product') }}</th>
+                    <th>{{ __('messages.shop') }}</th>
+                    <th>{{ __('messages.quantity') }}</th>
+                    <th>{{ __('messages.price_tax_inc') }}</th>
                 </tr>
             </thead>
             <tbody>
@@ -87,35 +87,35 @@
         <table>
             <tbody>
                 <tr>
-                    <td class="subtotal">Subtotal :</td>
+                    <td class="subtotal">{{ __('messages.sub_total') }} :</td>
                     <td>¥{{ number_format($orderDetails->first()->order->sub_total_amount , 0, '.', ',') }}</td>
                 </tr>
                 <tr>
-                    <td class="subtotal">Shipping Fee :</td>
+                    <td class="subtotal">{{ __('messages.shipping_fee') }} :</td>
                     <td>¥{{ number_format($orderDetails->first()->order->shipping_fee , 0, '.', ',') }}</td>
                 </tr>
                 <tr>
-                    <td class="subtotal">Coupon Discounted :</td>
+                    <td class="subtotal">{{ __('messages.coupon_discount') }} :</td>
                     <td>¥{{ number_format($orderDetails->first()->order->coupon_discount_amount , 0, '.', ',') }}</td>
                 </tr>
                 <tr>
-                    <td class="subtotal">Total Price :</td>
+                    <td class="subtotal">{{ __('messages.total_price') }} :</td>
                     <td>¥{{ number_format($orderDetails->first()->order->total_amount , 0, '.', ',') }}</td>
                 </tr>
             </tbody>
         </table>
-        <p>Please transfer the total amount of {{ $totalAmount }} to the following bank account:</p>
-        <p>Bank Name: {{ $bankInfo->bank_name }}</p>
-        <p>Branch Name: {{ $bankInfo->branch_name }}</p>
-        <p>Account Type: {{ $bankInfo->account_type }}</p>
-        <p>Account Number: {{ $bankInfo->account_number }}</p>
-        <p>Account Name: {{ $bankInfo->account_name }}</p>
-        <p>If you don't transfer the amount at {{ $transferDate }}, your order will be cancelled.</p>
-        <p>Please make sure the transfer person name to be the following name for the transfer process:</p>
-        <p>Transfer Person Name: {{ $transferPersonName }}</p>
-        <p>Thank you for shopping with us.</p>
+        <p>{{ __('messages.please_transfer_the_total_amount_to_bank_account', ['total_amount' => number_format($totalAmount, 0, '.', ',')]) }}</p>
+        <p>{{ __('messages.bank_name') }}: {{ $bankInfo->bank_name }}</p>
+        <p>{{ __('messages.branch_name') }}: {{ $bankInfo->branch_name }}</p>
+        <p>{{ __('messages.account_type') }}: {{ $bankInfo->account_type }}</p>
+        <p>{{ __('messages.account_number') }}: {{ $bankInfo->account_number }}</p>
+        <p>{{ __('messages.account_name') }}: {{ $bankInfo->account_name }}</p>
+        <p>{{ __('messages.transfer_warning_for_cancel', ['transfer_date' => $transferDate]) }}</p>
+        <p>{{ __('messages.please_make_sure_the_transfer_person_name') }}</p>
+        <p>{{ __('messages.transfer_person_name') }}: {{ $transferPersonName }}</p>
+        <p>{{ __('messages.thank_you_for_shopping') }}</p>
         <div class="footer">
-            <p>If you have any questions, please contact us at info@asian-food.site.</p>
+            <p>{{ __('messages.contact_us_if_any_questions') }}</p>
         </div>
     </div>
 </body>

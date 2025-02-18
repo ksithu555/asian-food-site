@@ -76,18 +76,18 @@
         </div>
         <div class="content">
             <p style="text-align: center;">
-                Your order has been <strong>cancelled</strong> by <strong>{{ $order->seller->shop_name }}</strong>!
+                {{ __('messages.order_cancelled_by_shop', ['shop_name' => $order->seller->shop_name]) }}
             </p>
             <p style="text-align: right;">{{ \Carbon\Carbon::now()->format('F j, Y') }}</p>
-            <p>Dear {{ $order->buyer->name }},</h2>
-            <p>Cancelled Reason : {{ $order->cancelled_reason }}</p>
-            <p>Here are the key details regarding order:</p>
+            <h2>{{ __('messages.dear', ['name' => $order->buyer->name]) }}</h2>
+            <p>{{ __('messages.cancelled_reason') }}: {{ $order->cancelled_reason }}</p>
+            <p>{{ __('messages.here_are_the_key_details_regarding_your_order') }}</p>
             <table>
                 <thead>
                     <tr>
-                        <th>Product</th>
-                        <th>Quantity</th>
-                        <th>Price(tax inc)</th>
+                        <th>{{ __('messages.product') }}</th>
+                        <th>{{ __('messages.quantity') }}</th>
+                        <th>{{ __('messages.price_tax_inc') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -101,14 +101,14 @@
             <table>
                 <tbody>
                     <tr>
-                        <td class="subtotal">Amount :</td>
+                        <td class="subtotal">{{ __('messages.amount') }} :</td>
                         <td>¥{{ number_format($order->amount , 0, '.', ',') }}</td>
                     </tr>
                 </tbody>
             </table>
-            <p>We will notify the refund process soon.</p>
+            <p>{{ __('messages.we_will_notify_refund_process_soon') }}</p>
             
-            <p>Thank you for shopping with us.</p>
+            <p>{{ __('messages.thank_you_for_shopping') }}</p>
         </div>
         <div class="footer">
             <p>Thank You,</p>
