@@ -693,7 +693,6 @@
                                 </ul>
                                 <div class="sub-footer" style="border-top: none;">
                                     <div class="social-link" style="margin-top: 10px; justify-content: left;">
-                                        <h5 class="text-content">{{ __('messages.stay_connected') }} :</h5>
                                         <ul>
                                             <li>
                                                 <a href="https://www.facebook.com/" target="_blank">
