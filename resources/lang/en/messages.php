@@ -411,4 +411,5 @@ return [
     'password_change_success' => '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;We wanted to let you know that your password has been successfully changed.',
     'password_change_warning' => '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;If you did not make this change or if you believe an unauthorized person has accessed your account, please contact our support team immediately.',
     'thank_you_for_security' => '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Thank you for keeping your account secure.',
+    'asia_human_development_inc' => 'Asia Human Development, Inc.',
 ];

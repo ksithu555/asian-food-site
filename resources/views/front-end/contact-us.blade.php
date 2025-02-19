@@ -98,7 +98,7 @@
                                                 </div>
 
                                                 <div class="contact-detail-contain">
-                                                    <p>Asia Human Development, Inc.</p>
+                                                    <p>{{ __('messages.asia_human_development_inc') }}</p>
                                                 </div>
                                             </div>
                                         </div>

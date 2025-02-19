@@ -410,4 +410,5 @@ return [
     'password_change_success' => '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;あなたのパスワードが正常に変更されたことをお知らせします。',
     'password_change_warning' => '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;この変更を行っていない場合、または不正なアクセスがあったと思われる場合は、直ちにサポートチームにご連絡ください。',
     'thank_you_for_security' => '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;アカウントのセキュリティを維持していただきありがとうございます。',
+    'asia_human_development_inc' => 'アジア人材開発株式会社',
 ];
