@@ -57,7 +57,7 @@ return [
     'are_you_sure_to_logout' => 'Are you sure to logout?',
     'btn_yes' => 'Yes',
     'btn_no' => 'No',
-    'cookies' => 'Cookies!',
+    'cookies' => 'Cookies',
     'we_use_cookies' => 'We use cookies to make your experience better.',
     'shop_now' => 'Shop Now',
     'today_best_sellers' => 'Today Best Sellers',

@@ -56,7 +56,7 @@ return [
     'are_you_sure_to_logout' => 'ログアウトしてもよろしいですか？',
     'btn_yes' => 'はい',
     'btn_no' => 'いいえ',
-    'cookies' => 'クッキー!',
+    'cookies' => 'クッキー',
     'we_use_cookies' => 'より良いサービスを提供するため、当サイトではクッキーを使用しています。',
     'shop_now' => '今すぐ購入',
     'today_best_sellers' => '今日のベストセラー',
