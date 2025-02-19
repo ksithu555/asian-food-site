@@ -14,7 +14,7 @@
                                         <i class="fa-solid fa-house"></i>
                                     </a>
                                 </li>
-                                <li class="breadcrumb-item active">{{ __('messages.discount') }}</li>
+                                <li class="breadcrumb-item active">{{ __('messages.product') }}</li>
                             </ol>
                         </nav>
                     </div>
