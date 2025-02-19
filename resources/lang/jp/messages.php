@@ -98,7 +98,7 @@ return [
     'expired_date' => '有効期限',
     'publisher' => '発行者',
     'use_code' => 'コードを使用',
-    'browse_by_categories' => 'カテゴリーでブラウズ',
+    'browse_by_categories' => 'カテゴリーで検索',
     'top_categories_of_the_week' => '週間のトップカテゴリー',
     'our_best_sellers' => 'ベストセラー',
     'indulge_in_perfection' => '至高の味わいをご堪能ください。',
